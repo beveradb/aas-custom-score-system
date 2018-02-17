@@ -1,0 +1,25 @@
+@media only screen and ( max-width: $tablet - 1 ) {
+
+	body.boxed-layout  { padding: 0; }
+	body.boxed-layout #top  { margin-left: 1.5em; margin-right: 1.5em; }
+	body.boxed-layout #wrapper  { margin-left: 0; margin-right: 0; border: none; }
+
+}
+
+@media only screen and ( min-width: $tablet ) {
+
+	/* Boxed Layout */
+	.boxed-layout #inner-wrapper,
+	.boxed-layout #wrapper { padding:0; }
+	.boxed-layout #header,
+	.boxed-layout #content,
+	.boxed-layout #footer-widgets,
+	.boxed-layout #footer {
+		padding-left: 2.5em;
+		padding-right: 2.5em;
+		@include box-sizing(border-box);
+	}
+
+	.boxed-layout #header { background-clip: padding-box; -webkit-background-clip: padding-box; }
+
+}

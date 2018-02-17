@@ -1,0 +1,20 @@
+/* 8.2 Magazine template */
+.magazine #loopedSlider .slides { width: 100%; }
+.magazine #loopedSlider li.slide { display: none; } /* Prevents flicker of the slides before the slider has loaded. */
+.magazine #loopedSlider li.slide img { max-width: 100%; height: auto; }
+.magazine #loopedSlider .pagination-wrap  { height: 30px; }
+
+@media only screen and ( max-width: $tablet - 1 ) {
+
+	.magazine #loopedSlider a.flex-next, .magazine #loopedSlider a.flex-prev  { bottom: auto; top: 20px; }
+	.magazine #loopedSlider { height: auto !important; max-height: none !important; }
+
+}
+
+@media only screen and ( min-width: $tablet ) {
+
+	.magazine .block { float:left; width:48%; }
+	.magazine .block.last { float:right; }
+	#loopedSlider.magazine-slider .content p, #loopedSlider.magazine-slider .content h2 {  max-width:350px; background:rgb(0,0,0); background:rgba(0,0,0,.7); }
+
+}

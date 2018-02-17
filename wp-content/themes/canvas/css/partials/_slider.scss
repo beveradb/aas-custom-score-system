@@ -1,0 +1,65 @@
+/* 8.1 Slider */
+#loopedSlider .slides { overflow: hidden; }
+#loopedSlider .container { overflow: hidden; position:relative; display: none; }
+#loopedSlider .slides { top:0; left:0; }
+#loopedSlider .slides .slide { display: none; overflow: hidden; position: relative; /* -webkit-backface-visibility: hidden; */ }
+#loopedSlider { margin:0 auto 40px; padding:0; position:relative;}
+#loopedSlider .nav-buttons { list-style-type:none; margin:0; padding:0; position:relative;}
+#content.magazine #loopedSlider .slides .slide img  { width: 100%; }
+
+/* Clearfix for the .slides element */
+#loopedSlider .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] #loopedSlider .slides {display: block;}
+* html #loopedSlider .slides {height: 1%;}
+
+#loopedSlider .content { padding: 20px 0; background:rgb(0,0,0); }
+#loopedSlider .content h2 { font-size: 20px; margin-bottom:0; padding: 10px 20px; }
+#loopedSlider .content h2, #loopedSlider .content h2 a, #loopedSlider .content h2 a:visited  { color:#fff; }
+#loopedSlider .content h2 a:hover { text-decoration:underline;  }
+#loopedSlider .content .title  { margin: 0; }
+#loopedSlider .content p { color:#ccc; padding:5px 20px 10px 20px; }
+
+.widget a.flex-prev, .widget a.flex-next { padding-top: 30px; }
+
+/* 8.1.1 Pagination */
+#loopedSlider { margin-bottom: 50px; overflow:hidden; }
+#loopedSlider.has-pagination { margin-bottom: 5px; }
+#loopedSlider .flex-disabled { display: none; }
+#loopedSlider .flex-control-nav, .slider-pagination .flex-control-nav { text-align: center; margin: 10px 0 20px 0; position: absolute; width: 100%; z-index: 10; }
+#loopedSlider .pagination, #loopedSlider .flex-control-nav, .slider-pagination .flex-control-nav { display: inline; }
+#loopedSlider .pagination li, #loopedSlider .flex-control-nav li, .slider-pagination li { display: inline-block; margin: 0 2px; width: 8px; height: 8px; }
+#loopedSlider .pagination li a, #loopedSlider .flex-control-nav li a, .slider-pagination a { display: block; cursor: pointer; width: 6px; height: 6px; text-indent: -9999px; background: none; border-radius: 99px; border:2px solid; }
+#loopedSlider .pagination li a, #loopedSlider .flex-control-nav li a:hover, .slider-pagination li a:hover  { background: #555; border-color: #555; }
+#loopedSlider .pagination li.current a, #loopedSlider .flex-control-nav li .flex-active, .slider-pagination .flex-active a { background: #222; border-color: #222;}
+
+.slider-pagination { display: none; margin-bottom: 50px; opacity: 0.5; @include transition( 200ms, ease-out ); }
+.slider-pagination:hover { opacity: 1; @include transition( 200ms, ease-in ); }
+
+body.ie7 #loopedSlider .pagination li { display: inline; zoom: 1; }
+
+#loopedSlider a.flex-prev { position:absolute; top:0; left:0; height: 100%; width: 5%; }
+#loopedSlider a.flex-next { position:absolute; top:0; right:0; height: 100%; width: 5%; }
+#loopedSlider a.flex-prev, #loopedSlider a.flex-next { opacity:0; background:none; color: rgba(0,0,0,.5); @include transition( 200ms, ease-out ); z-index:99; }
+#loopedSlider:hover a.flex-prev, #loopedSlider:hover a.flex-next { opacity: 1; @include transition( 200ms, ease-in ); }
+#loopedSlider a.flex-prev:hover, #loopedSlider a.flex-next:hover { text-decoration: none; color: $color_links;  }
+
+#loopedSlider a.flex-prev span,
+#loopedSlider a.flex-next span { position:absolute; text-align: center; top:45%; font-size: 28px; width: 25px; height:28px; border: 2px solid; border-radius: 99px; }
+#loopedSlider a.flex-prev span { left: 30%; padding-right: 2px; }
+#loopedSlider a.flex-next span { right: 30%; padding-left: 2px; }
+
+@media only screen and ( max-width: $tablet - 1 ) {
+
+	#loopedSlider { height: auto !important; }
+	#loopedSlider .slides { overflow: visible; height: auto !important; }
+
+}
+
+@media only screen and ( min-width: $tablet ) {
+
+	/* Sliders */
+	#loopedSlider .content  { position:absolute; left:0px; top:20px; background: none; }
+	#loopedSlider .content h2 { float: left; font-size: 26px; }
+	#loopedSlider .content p { clear:both; float:left; }
+
+}

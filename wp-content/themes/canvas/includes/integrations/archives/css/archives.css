@@ -1,0 +1,97 @@
+/**
+ * Archives
+ *
+ * Styles which integrate this theme with the Archives plugin.
+ * This stylesheet is only enqueued if Archives is activated.
+ * http://wordpress.org/plugins/archives-by-woothemes/
+ */
+.fa, #timeline .archives_list .comments a:before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw, #timeline .archives_list .comments a:before {
+  width: 1.28571em;
+  text-align: center; }
+
+#timeline {
+  padding: 10px 0 0; }
+  #timeline .archives_list {
+    border-left: 1px solid #e6e6e6;
+    list-style: none;
+    margin: 0 0 0 25px;
+    padding: 0 0 20px; }
+    #timeline .archives_list:last-child:after {
+      content: "";
+      position: relative;
+      top: 20px;
+      left: -7px;
+      display: block;
+      width: 5px;
+      height: 5px;
+      border: 4px solid #f0f0f0;
+      background: #FF4800;
+      border-radius: 100%; }
+    #timeline .archives_list li {
+      clear: left;
+      padding: 10px 0 10px 10px;
+      font-size: .9em;
+      font-style: normal;
+      list-style: none; }
+    #timeline .archives_list .date {
+      color: #6e6e6e;
+      position: relative;
+      width: 40%;
+      font-style: italic;
+      display: block;
+      vertical-align: top; }
+      #timeline .archives_list .date:before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: -10px;
+        display: block;
+        width: 5px;
+        height: 1px;
+        border-top: 2px solid #e6e6e6; }
+    #timeline .archives_list .linked {
+      padding-top: 2px;
+      padding-right: 80px;
+      width: auto;
+      display: inline-block;
+      font-size: 1.2em;
+      line-height: 1.2;
+      vertical-align: top; }
+      #timeline .archives_list .linked a {
+        font-weight: bold; }
+    #timeline .archives_list .comments {
+      display: inline;
+      margin-top: -15px;
+      float: right;
+      vertical-align: top; }
+      #timeline .archives_list .comments a {
+        display: block;
+        position: relative;
+        padding: 3px 0 0 0;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.4em;
+        border-radius: 100%; }
+        #timeline .archives_list .comments a:before {
+          content: "\f075";
+          font-size: .7em;
+          position: relative;
+          top: -2px;
+          margin-right: 5px; }
+
+h3.archive_year {
+  font-weight: bold;
+  font-size: 1em;
+  padding: 2px 10px;
+  border-bottom: 1px solid #e6e6e6;
+  display: inline;
+  margin-top: 0; }

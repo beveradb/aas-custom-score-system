@@ -1,0 +1,470 @@
+/*
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it
+is easier to update the theme. Simply copy an existing style
+from style.css to this file, and modify it to your liking. */
+
+
+/* GLOBAL STYLES
+----------------
+Add styles beneath this line that you want to be applied across your entire site */
+
+	/* Since we're putting a met office iframe in this sidebar, it needs to be behind everything else, as the iframe doesn't resize */ 
+
+	/*#sidebar-alt {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		z-index: -999999;
+	}*/
+	
+	/* Hide the printfriendly ads */
+	#gaiframe {
+		display: none !important;
+		text-indent: -9999px !important;
+	}
+	#pf-dialog-ads {
+		display: none !important;
+	}
+	
+	#sidebar-alt input {
+		width: 100%;
+	}
+	
+	/* Page title is useless on the homepage */
+	
+	.home div.breadcrumb {
+		display: none;
+	}
+	.page-template-template-matchcard-php h1.title {
+		display: none;
+	}
+	.FacebookImage {
+		display: block;
+		float: left;
+		height: 19px;
+		margin-right: 2px;
+	}
+	.FacebookImage img {
+		height: 100%;
+	}
+	.FriendButton {
+		display: block;
+		float: left;
+		vertical-align: baseline;
+		height: 21px;
+		overflow: hidden;
+	}
+	.FriendButton label {
+		padding: 2px 6px;
+		margin: 0;
+		font-size: 13px;
+		line-height: 16px;
+		height: 19px;
+		background-image: url("https://abingdonauntsally.com/wp-content/uploads/2013/09/kLUqkRccdpx.png");
+		background-repeat: no-repeat;
+		background-size: auto;
+		background-position: -352px -64px;
+		background-color: #69a74e;
+		border-color: #3b6e22 #3b6e22 #2c5115;
+		/*border: 1px solid #999;*/
+		/*-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);*/
+	}
+	.FriendButton i {
+		margin-top: 4px;
+		overflow: hidden;
+		vertical-align: top;
+		background-position: -90px -383px;
+		margin-right: 5px;
+		width: 11px;
+		background-image: url("https://abingdonauntsally.com/wp-content/uploads/2013/09/bN3S6KNeyG2.png");
+		background-size: auto;
+		background-repeat: no-repeat;
+		display: inline-block;
+		height: 14px;
+		font-style: italic;
+		font-size: 13px;
+		line-height: 16px;
+	}
+	.FriendButton input {	
+		width: auto !important;
+		background: none;
+		border: 0;
+		cursor: pointer;
+		display: inline-block;
+		font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+		font-weight: bold;
+		margin: 0;
+		padding: 1px 0 2px;
+		white-space: nowrap;
+		font-size: 13px;
+		line-height: 16px;
+		color: #fff;
+		align-items: flex-start;
+		text-align: center;
+		-webkit-appearance: push-button;
+		box-sizing: border-box;
+	}
+	
+	div.printfriendly {
+		line-height: 18px;
+	}
+	
+	#committee_slider {
+		max-width: 200px;
+	}
+	
+	/* Format the top section of the Match Card page which allows the user to select which teams were playing in the match */ 
+	
+	div#matchCard , table#matchDetails {
+		position: relative;
+		font-size: 18px;
+	}
+
+	div#matchCard table#matchDetails td, div#matchCard table#matchDetails th {
+		vertical-align: middle;
+		text-align: center;
+		padding: 0.7em; 
+		font-size: 18px;
+	}	
+	
+	div#matchCard table#matchDetails input, div#matchCard table#matchDetails select {
+		height: 27px;
+		width: 100%;
+		border: 1px solid #a9a9a9;
+		border-radius: 3px;
+		margin: 0; padding: 0;
+	}
+	
+	div#matchCard table#matchDetails th.homeTeamHeading {
+		width: 15%;
+	}
+	
+	div#matchCard table#matchDetails th.awayTeamHeading {
+		width: 15%;
+	}
+	
+	div#matchCard table#matchDetails th.teamSelectionVersus {
+		width: 6%;
+		font-size: 30px;
+		padding: 0.5em 0.5em;
+	}
+	
+	div#matchCard table#matchDetails th.matchVenueHeading {
+		width: 15%;
+	}
+	
+	div#matchCard table#matchDetails th.dateHeading {
+		width: 8%;
+	}
+	
+	div#matchCard table#matchDetails #date {
+		font-size: 15px;
+	}
+	div#matchCard table#matchDetails td.dateParent {
+		width: 15% !important;
+	}
+	div#matchCard table#matchDetails th.weekHeading {
+		width: 7%;
+	}
+	
+	
+	
+        table#LeftContainerTable{
+                float: left;
+		width: 47%;
+		margin: 0; padding: 0;
+                border: 0px;
+        }
+
+         table#RightContainerTable{
+                float: right;
+		width: 47%;
+		margin: 0; padding: 0;
+                border: 0px;
+        }
+        table#LeftContainerTable td,table#RightContainerTable td{
+            border: 0px;
+            padding: 0px
+        }
+       
+        div#matchCard table#LeftContainerTable table#homePlayerScores td,
+        div#matchCard table#RightContainerTable table#awayPlayerScores td,
+        div#popupData table#LeftContainerTable table#homePlayerScoresPopup td,
+        div#popupData table#RightContainerTable table#awayPlayerScoresPopup td{
+            padding: 10px;
+            border: 1px solid #eee;
+        }
+        
+        div#matchCard table#homePlayerScores,
+        div#matchCard table#awayPlayerScores ,
+        div#matchCard table#homeTotalScores,
+        div#matchCard table#awayTotalScores
+        {
+ 		display: none;
+	} 
+        #date{
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+        }
+        table.matchDetailsTable{
+            width: 50%;
+            float: left;
+        }
+      
+	 
+        div#popupData table#homePlayerScoresPopup,
+        div#popupData table#awayPlayerScoresPopup,
+        div#popupData table#homeTotalScoresPopup,
+        div#popupData table#awayTotalScoresPopup{
+ 		width: 100%;
+ 	
+	}
+	
+       
+	div#matchCard table.playerScores th.legHeading ,div#popupData table.playerScores th.legHeading {
+		width: 16%;
+		margin: 0; padding: 0;
+		height: 30px;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	div#matchCard table.playerScores .playersHeading {
+	}
+	
+	div#matchCard table.playerScores .playerScoresRow td.inputBox,div#popupData table.playerScoresPopup .playerScoresRow td.inputBox {
+		width: 16%;
+		margin: 0; padding: 0;
+		height: 30px;
+		vertical-align: middle;
+	}
+	div#matchCard table.playerScores .playerScoresRow input,
+        div#popupData table.playerScoresPopup .playerScoresRow input {
+		width: 100%;
+		height: 100%;
+		border: none;
+		border-radius: none;
+		margin: 0; padding: 0;
+		text-align: center;
+	}
+	div#matchCard table.playerScores .playerScoresRow td.playerName,
+        div#popupData table.playerScoresPopup .playerScoresRow td.playerName {
+		padding: 0.7em 1.3em;
+	}
+	
+	
+        
+   
+
+	div#matchCard table#homeTotalScores th.inputBox,
+        div#matchCard table#awayTotalScores th.inputBox,
+        div#popupData table#homeTotalScoresPopup th.inputBox,
+        div#popupData table#awayTotalScoresPopup th.inputBox {
+		width: 16%;
+		margin: 0; padding: 0;
+		height: 30px;
+		vertical-align: middle;
+		text-align: center;
+	}
+	
+	div#matchCard input.submit{
+		float: right;
+		clear: both;
+		font-size: 18px;
+		display: none;
+		margin-top: 20px;
+	}
+      
+	div#popupData .submit,div#popupData .close {
+		float: right;
+		clear: none;
+		font-size: 18px;
+ 		margin: 20px 0 0 5px;
+	}
+      	
+	/* Team Registration Form styles */
+	
+	#teamRegistration input,#teamRegistration select,#teamRegistration textarea {
+		width: 400px;
+		margin: 0; padding: 0;
+	}
+
+	#teamRegistration input,select {
+		height: 25px;
+                width: 100%;
+	}
+	
+        
+	#teamRegistration textarea {
+		height: 150px;
+	}
+	
+	#teamRegistration td#playersCell span.playerNumber {
+		display: inline-block;
+		width: 100px;
+	}
+	
+	#teamRegistration td#playersCell input {
+		width: 300px;
+	}
+	
+	#teamRegistration td#playersCell div.player {
+		margin-bottom: 10px;
+	}
+
+	#teamRegistration #addPlayerButton {
+		font-size: 14px;
+	}
+	
+	#teamRegistration th.submitForm {
+		text-align: center;
+	}
+	#teamRegistration th.submitForm  input#submitButton {
+		font-size: 18px;
+		height: 30px;
+	}
+	
+	#teamRegistration .deletePlayerButton{
+		margin-left: 5px;
+		border:1px solid #df0909; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:16px;font-family:arial, helvetica, sans-serif; padding: 2px 3px 2px 3px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+		background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+		background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+		background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+		background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+		background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+		background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+	}
+
+	#teamRegistration .deletePlayerButton:hover{
+		margin-left: 5px;
+		border:1px solid #b30808;
+		background-color: #e40a0a; background-image: -webkit-gradient(linear, left top, left bottom, from(#e40a0a), to(#9f0202));
+		background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+		background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+		background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+		background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+		background-image: linear-gradient(to bottom, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+	}
+	
+	/* All Scores page */
+	
+	table.allScores td, table.allScores th {
+		margin: 0; padding: 0;
+		vertical-align: middle;
+		text-align: center;
+		height: 35px;
+	}
+	
+	table.allScores td.weekNumberHeading, table.allScores td.playedHeading,table.allScores td.totalHeading,table.allScores td.averageHeading ,
+	table.allScores th.winHeading, table.allScores th.drawHeading, table.allScores th.loseHeading {
+		width: 4.2%;
+	}
+	
+	table.allScores th.playerName, table.allScores th.teamName, table.allScores th.pointsHeading, table.allScores th.weekHeading {
+		text-align: left;
+		padding-left: 15px;
+	}
+	
+	table.allScores th.teamName {
+		font-size: 20px;
+		color: #000;
+	}
+
+	table.allScores td.maxScore4 {
+		background-color: #FFC7CE;
+	}
+	table.allScores td.maxScore5 {
+		background-color: #FFE28A;
+	}
+	table.allScores td.maxScore6 {
+		background-color: #FFFF00;
+	}
+	
+	table.highestDollsSection {
+		width: 49%;
+		float: left;
+	}
+	table.highestDollsSection:nth-child(odd) {
+		margin-right: 2%;
+	}
+	table.highestDollsSection th {
+		padding: 0.4em 0.5em;
+	}
+	table.highestDollsSection td {
+		padding: 0.2em 0.5em;
+	}
+	
+	table.highestDollsSection th.sectionName {
+		font-size: 20px;
+	}
+	
+/* WIDE DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+
+@media only screen and (min-width: 960px) {	
+	table.allScores td.playerScore {
+		letter-spacing: 3px;
+	}
+       	 
+		 
+        
+}
+
+	
+/* DESKTOP STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
+@media only screen and (min-width: 768px) {
+        
+}
+
+
+
+/* MOBILE STYLES
+-----------------
+Add styles inside the media query below that you only want to be applied to the mobile layout of your site */
+@media only screen and (max-width: 768px) {
+        
+         div#matchCard table#homePlayerScores td,div#matchCard  table#awayPlayerScores td{
+            padding: 5px;
+            font-size: 12px
+        }
+        table#LeftContainerTable, table#RightContainerTable {
+            width: 100%; 
+        }
+          table.matchDetailsTable{
+            font-size: 13px;
+        }
+        .pf-content p img{
+            display: none;
+        }
+          table.weekHeading{
+            font-size: 12px;
+        }
+    table.matchDetailsTable{
+            width: 100%;
+        }
+	#logo {
+		padding: 0;
+	}
+	#header {
+		background-size: 0px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.home #logo {
+		padding: 190px 0 0 0;
+	}
+	.home #header {
+		background-position: center top;
+		background-size: 200px;
+	}
+}
+
+

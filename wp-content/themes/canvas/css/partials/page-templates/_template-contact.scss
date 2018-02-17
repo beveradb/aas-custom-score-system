@@ -1,0 +1,85 @@
+/* 8.6 Contact Page Template */
+#single_map_canvas img  { max-width: inherit; }
+.page-template-template-contact-php .location-twitter {
+  margin: 0 0 1em;
+  padding: 0 0 1.618em;
+  border-bottom: 1px solid #e6e6e6;
+}
+.page-template-template-contact-php .location-twitter .col-left {
+  float: none;
+}
+.page-template-template-contact-php .location-twitter ul {
+  margin: 0;
+  padding: 0;
+}
+.page-template-template-contact-php .location-twitter ul li {
+  list-style: none;
+  padding: 0;
+}
+.page-template-template-contact-php .location-twitter #office-location {
+  margin: 0 0 1.618em;
+}
+.page-template-template-contact-php .location-twitter #office-location a {
+  text-decoration: underline;
+}
+.page-template-template-contact-php .location-twitter #office-location ul li {
+  margin: 0 0 1em;
+}
+.page-template-template-contact-php .location-twitter .contact-social {
+  float: none;
+}
+.page-template-template-contact-php .location-twitter .contact-social #twitter {
+  margin: 0 0 1.618em;
+}
+.page-template-template-contact-php .location-twitter .contact-social #twitter ul li {
+  padding-bottom: 10px;
+}
+.page-template-template-contact-php .location-twitter .contact-social #twitter ul li a.time {
+  color: #7b7b7b;
+}
+.page-template-template-contact-php .location-twitter .contact-social #connect {
+  background: none;
+  border: none;
+  padding: 0; margin: 1em 0 0;
+}
+.page-template-template-contact-php .location-twitter .contact-social #connect div p  { display: none; }
+.page-template-template-contact-php .location-twitter .contact-social #connect img  { border: none; padding: 0; background: none; }
+.page-template-template-contact-php .location-twitter .contact-social #connect h3 {
+  display: none;
+}
+.page-template-template-contact-php .location-twitter .contact-social #connect .social {
+  float: none;
+  clear: both;
+}
+
+/* 6.3 Contact Form */
+#contact-page .screenReader { left: -9999px; position: absolute; top: -9999px; }
+#contact-page ol.forms{float:left;list-style:none;width:100%;margin:10px 0 0;}
+#contact-page ol.forms li{clear:both;float:left;margin-bottom:18px;position:relative;width:100%}
+#contact-page ol.forms label{cursor:pointer;display:block;float:left;font-weight:700;padding-right:20px;width:80px;}
+#contact-page ol.forms input.txt{width:214px;}
+#contact-page ol.forms input#sendCopy{border:none;}
+#contact-page ol.forms textarea{height:300px;width:70%;}
+#contact-page ol.forms li .error{font-size:12px;display:block;margin-left:120px;color:red;}
+#contact-page ol.forms li.textarea .error{display:block; margin-left:120px}
+#contact-page ol.forms li.screenReader{margin-bottom:0;}
+#contact-page ol.forms li.inline input{width:auto;margin-left:120px;}
+#contact-page ol.forms li.inline input#sendCopy  { margin-left: 0px; }
+#contact-page ol.forms li.inline label{display:inline;float:none;width:auto;}
+.three-col-left #contact-page ol.forms textarea,
+.three-col-middle #contact-page ol.forms textarea,
+.three-col-right #contact-page ol.forms textarea { width: 65%; }
+.three-col-left #contact-page ol.forms input#sendCopy,
+.three-col-middle #contact-page ol.forms input#sendCopy,
+.three-col-right #contact-page ol.forms input#sendCopy { float: left; }
+
+@media only screen and ( min-width: $tablet ) {
+
+  .page-template-template-contact-php .location-twitter .col-left { float: left; }
+  .page-template-template-contact-php .location-twitter #office-location { width: 48%; margin: 0 1em 0 0; }
+  .page-template-template-contact-php .location-twitter .contact-social { float: left; width: 48%; }
+  .page-template-template-contact-php .location-twitter .contact-social #twitter { margin: 0; }
+  #contact-page ol.forms li.buttons .submit{margin: 0 0 0 100px; }
+  #contact-page ol.forms li.inline input#sendCopy  { margin-left: 100px; }
+
+}

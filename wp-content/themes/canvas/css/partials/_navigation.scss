@@ -1,0 +1,588 @@
+/* 2.2 Navigation */
+#navigation {
+	clear:both;
+	@include box-sizing( border-box );
+	width:80%;
+	left:-80%;
+	position: absolute;
+	top:0;
+	min-height:100%;
+	z-index: 9000;
+	padding-top:4.236em;
+	margin-bottom: 3em;
+	font: 300 14px/1.2 "Helvetica Neue", sans-serif;
+	background: #f0f0f0;
+	.menus {
+		clear:both;
+	}
+	h3 {
+		font-size:1em;
+		padding:.5em 1em;
+	}
+	ul {
+		margin-bottom:1.618em;
+		ul {
+			margin:0 0 0 1.618em;
+		}
+	}
+
+	.nav-home,
+	.nav-close,
+	ul.rss li a,
+	ul.cart a.cart-contents,
+	ul.nav-search a.search-contents {
+		height:1em;
+		width:1em;
+		text-indent: -999px;
+		display: block;
+		font-size:1em;
+		padding:.5em;
+		position: absolute;
+		top:1em;
+		left:1em;
+		background: #999;
+		color: #fff;
+		border-radius: 3px;
+
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f00d";
+			display: block;
+			position: absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			text-align: center;
+			text-indent: 0;
+			line-height: 2;
+		}
+	}
+
+	.nav-home {
+		left:auto;
+		right:1em;
+
+		&:before {
+			content: "\f015";
+		}
+	}
+
+	ul.rss {
+		margin-right:50px;
+		margin-bottom:0;
+		margin-top: -45px;
+		float:right;
+		@include clearfix;
+		// &.cart-enabled {
+		// 	margin-right:85px;
+		// }
+		li {
+			float: left;
+			a {
+				position: relative;
+				top:0;
+				left:0;
+				margin-left:.5em;
+			}
+			&.sub-email a:before {
+				content:"\f003";
+			}
+			&.sub-rss a:before {
+				content:"\f09e";
+			}
+		}
+	}
+
+	// Cart styling
+	ul.cart {
+		a.cart-contents {
+			left: auto;
+			right: 3.5em;
+			display: inline-block;
+
+			&:before {
+				content: "\f07a";
+			}
+
+			+ ul {
+				display: none;
+			}
+		}
+	}
+
+	// Search Styling
+	ul.nav-search {
+		clear: both;
+		@include clearfix;
+		#searchform,
+		.searchform {
+			background: #e6e6e6;
+			position: relative;
+			border: 0;
+
+			input#s,
+			input.s {
+				border: 0;
+				box-sizing: border-box;
+				padding: 1.414em 2.99em 1.414em 1.414em;
+				width: 100%;
+			}
+
+			.submit {
+				background: none;
+				position: absolute;
+				right: 0;
+				top: 1.25em;
+				padding: 0 1em;
+				border: 0;
+
+				&:before {
+					color: #555;
+					font-size: 1em;
+				}
+			}
+		}
+
+		ul {
+			margin: 0 1em;
+		}
+	}
+
+}
+
+.show-nav {
+	#navigation {
+		.top-navigation {
+			display: block;
+		}
+	}
+	#inner-wrapper {
+		left:80%;
+	}
+}
+ul.nav  { width: 100%; }
+ul.nav li a { padding: .5em 1em; display: block; color: #666; }
+ul.nav li.current_page_item a,
+ul.nav li.current_page_parent a,
+ul.nav li.current-menu-ancestor a,
+ul.nav li.current-cat a,
+ul.nav li.current-menu-item a { background: #e6e6e6; color: #3088ff; }
+ul.nav li ul li a  { background: none!important; color: #666!important; }
+ul.nav ul li.current_page_item a,
+ul.nav ul li.current_page_parent a,
+ul.nav ul li.current-menu-ancestor a,
+ul.nav ul li.current-cat a,
+ul.nav ul li.current-menu-item a,
+#navigation ul.cart .cart_list a  { color: #3088ff; }
+
+/* Nav Toggle */
+.nav-toggle:before  { content: "\f0c9"; font-family: "FontAwesome"; font-weight: normal; color: #fff; margin-left: 0.5em; text-shadow: 0 1px 0 #000; border-right: 1px solid rgba(255, 255, 255, 0.1); display: inline-block; padding: 0.8em 1em 0.8em 0.5em; }
+.nav-toggle { margin: 0 -1em; cursor: pointer; text-align: left; display: block; padding: 0; font-size: 1em; @include linear-gradient(left top, rgba(0,0,0,.65), rgba(0,0,0,.8)); border-bottom: 1px solid rgba(0,0,0,.2); }
+.nav-toggle a  { color: #fff !important; text-shadow: 0 1px 0 #000; padding: 0.5em 1em; border-left: 1px solid rgba(0, 0, 0, 0.1)}
+.nav-toggle a:hover  { color: #fff; text-decoration: none; }
+#top select { margin: 1.618em 0 0; width:100%; }
+#top { display: none; font-weight: 400; }
+
+@media only screen and ( max-width: $tablet - 1 ) {
+
+	// #navigation .cart { margin: 0; }
+	#navigation ul.nav ul.children { margin-left: 1.5em; }
+	#navigation {
+		font-weight: 400;
+		ul.rss {
+			right: 49px;
+			float: none;
+			margin: 0;
+			position: absolute;
+			top: 14px;
+			@include clearfix;
+			&.cart-enabled {
+				right:84px;
+				margin: 0;
+			}
+		}
+	}
+	#nav-container { border-width: 0 !important; }
+
+	ul.nav, ul.nav ul  { border: none!important; }
+	#navigation ul.nav > li { border-right: none!important; }
+
+	// Modernizr detects 3d transforms and then uses it to greatly enhance animation performance
+	.csstransforms3d.csstransitions {
+		#navigation {
+			left: 0;
+		    -webkit-transform: translate3d(-100%, 0, 0);
+		    -moz-transform: translate3d(-100%, 0, 0);
+		    -ms-transform: translate3d(-100%, 0, 0);
+		    -o-transform: translate3d(-100%, 0, 0);
+		    transform: translate3d(-100%, 0, 0);
+		    -webkit-backface-visibility: hidden;
+		    -moz-backface-visibility: hidden;
+		    -ms-backface-visibility: hidden;
+		    -o-backface-visibility: hidden;
+		    backface-visibility: hidden;
+		}
+	}
+	// 3d transforms disabled when fixed mobile layout is selected
+	.csstransforms3d.csstransitions body.fixed-mobile {
+		#navigation {
+			left: 0;
+		    -webkit-transform: none;
+		    -moz-transform: none;
+		    -ms-transform: none;
+		    -o-transform: none;
+		    transform:none;
+		}
+		#inner-wrapper {
+			left: 0 !important;
+		    -webkit-transform: translate3d(0, 0, 0);
+		    -moz-transform: translate3d(0, 0, 0);
+		    -ms-transform: translate3d(0, 0, 0);
+		    -o-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		    -webkit-transition: -webkit-transform 200ms ease;
+		    -moz-transition: -moz-transform 200ms ease;
+		    -o-transition: -o-transform 200ms ease;
+		    transition: transform 200ms ease;
+		    -webkit-backface-visibility: hidden;
+		    -moz-backface-visibility: hidden;
+		    -ms-backface-visibility: hidden;
+		    -o-backface-visibility: hidden;
+		    backface-visibility: hidden;
+		}
+		.show-nav {
+			#navigation {
+				-webkit-transform: translate3d(-100%, 0, 0);
+			    -moz-transform: translate3d(-100%, 0, 0);
+			    -ms-transform: translate3d(-100%, 0, 0);
+			    -o-transform: translate3d(-100%, 0, 0);
+			    transform: translate3d(-100%, 0, 0);
+			}
+			#inner-wrapper {
+			    -webkit-transform: translate3d(80%, 0, 0);
+			    -moz-transform: translate3d(80%, 0, 0);
+			    -ms-transform: translate3d(80%, 0, 0);
+			    -o-transform: translate3d(80%, 0, 0);
+			    transform: translate3d(80%, 0, 0);
+			    -webkit-transform-origin: 50% 0%;
+			    -moz-transform-origin: 50% 0%;
+			    -ms-transform-origin: 50% 0%;
+			    -o-transform-origin: 50% 0%;
+			    transform-origin: 50% 0%;
+			}
+		}
+	}
+
+}
+
+/* Tablet Portrait size and sizes above 768 (devices and browsers) */
+@media only screen and ( min-width: $tablet ) {
+
+	/* 1. GLOBAL DROPDOWN STYLES (these are purely for the dropdown layout and you should only edit the width of the dropdowns) */
+	ul.nav { position: relative; margin-bottom: 0; width: auto; margin-right: 1em; }
+	ul.nav li { position: relative; float: left; zoom: 1; list-style: none; }
+	ul.nav li a { display: block; padding-top: 1em!important; padding-bottom: 1em!important; }
+	ul.nav li a:hover  { text-decoration: none; }
+	ul.nav li ul li a:hover  { text-decoration: underline; }
+	ul.nav ul { width: 12em; visibility: hidden; position: absolute; top: 100%; left: -9999em; z-index: 9999; margin: 0; padding: 0.4em 0; }
+	ul.nav ul li { float: none; }
+	ul.nav ul li a { width: 100%; display: inline-block; padding: 0.7em 1em!important; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 0.9em; }
+	ul.nav ul ul { left: 100%; top: 0; }
+	ul.nav li:hover > ul { visibility: visible; left: 0; }
+
+	/* 2. TOP NAVIGATION (Add top navigation presentational styles here) */
+	#top {
+		background: #000;
+		h3 {
+			display: none;
+		}
+	}
+	#top { display: block!important; }
+	#top ul.nav {  }
+	#top ul.nav li a  { color: #ddd; padding-top: 0.5em!important; padding-bottom: 0.5em!important; font-size: 1em; }
+	#top ul.nav > li a:hover { background: #555; color: #ddd; }
+	#top ul.nav > li:hover { background: #555; color: #ddd; }
+	#top ul.nav ul { background: #555; }
+	#top ul.nav ul li a  { color: #ddd!important;  }
+	#top ul.nav li.current_page_item a,
+	#top ul.nav li.current_page_parent a,
+	#top ul.nav li.current-menu-ancestor a,
+	#top ul.nav li.current-cat a,
+	#top ul.nav li.current-menu-item a  { color: #333; background: #fff; }
+
+	/* 3. MAIN NAVIGATION DROPDOWN MENUS (Add main navigation presentational styles here) */
+	// Reset the mobile bits first
+
+	#navigation {
+		.top-navigation {
+			display: none !important; // Just in case someone resizes to mobile, opens the nav and then resizes to desktop
+		}
+	}
+	.csstransforms3d.csstransitions {
+		#navigation, .show-nav #navigation, .show-nav #inner-wrapper {
+			left: 0;
+		    -webkit-transform: translate3d(0%, 0, 0);
+		    -moz-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		    -o-transform: translate3d(0%, 0, 0);
+		    transform: translate3d(0%, 0, 0);
+		}
+	}
+	.nav-toggle, .nav-close, .nav-home {
+		display: none !important;
+	}
+	#navigation {
+		position: relative;
+		left:auto;
+		width:100%;
+		border: none;
+		padding-top:0;
+		background: #f0f0f0;
+		border-radius: 2px;
+		display: block !important;
+		h3 {
+			display: none;
+		}
+
+		.menus {
+			position: relative;
+			clear: none;
+
+			&.nav-icons {
+				@include clearfix;
+
+				.side-nav {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+
+			@for $i from 1 through 4 {
+				 &.nav-icons-#{$i} {
+				 	$width: $i * 3;
+
+					#main-nav {
+						margin-right: #{$width}em;
+					}
+
+					.side-nav {
+						width: #{$width}em;
+					}
+				}
+			}
+
+		}
+
+		ul.rss {
+			margin:0;
+			li {
+				a {
+					background:none;
+					color: #666;
+					padding:1em;
+					margin:0;
+
+					&:before {
+						line-height: 3.2;
+					}
+
+					&:hover {
+						color: #222;
+					}
+				}
+			}
+		}
+
+		ul {
+			margin-bottom:0;
+
+			ul {
+				margin-left:0;
+			}
+		}
+	}
+	#navigation ul.nav > li a:hover { background: #e6e6e6; }
+	#navigation ul.nav > li:hover { background: #e6e6e6; }
+	#navigation ul.nav ul { background: #e6e6e6; }
+	#navigation ul.nav > li:hover > ul { left: -1px; }
+	#navigation ul.nav ul ul { top: -5px; left: 100%; }
+	#top .nav li.parent > a { position: relative; }
+
+	#top .nav li.parent > a:after { display: inline-block; font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: .75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f0d7"; color:inherit; font-size: .857em; margin-top: 6px; speak: none; width: 1.387em; display: inline-block; text-align: right; }
+	#top .nav li ul li.parent > a:after { display: inline-block; font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: .75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f0da"; float: right; position: absolute; top: .53em; right: 1em; text-decoration: none; }
+	#top .nav li ul li.parent > a { padding-right: 2.244em !important; }
+	#top .nav ul ul { top: -.327em; left: 100%; }
+	#navigation .nav li.parent > a { position: relative; }
+	#navigation .nav li.parent > a:after { display: inline-block; font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: .75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f0d7"; color:inherit; font-size: .857em; margin-top: 2px; speak: none; width: 1.387em; display: inline-block; text-align: right; line-height: 1; }
+	#navigation .nav li ul li.parent > a { padding-right: 2.244em !important; }
+	#navigation .nav li ul li.parent > a:after { display: inline-block; font-family: FontAwesome; font-style: normal; font-weight: normal; line-height: .75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; content: "\f0da"; float: right; position: absolute; top: 1em; right: 1em; text-decoration: none; }
+	.full-width #navigation ul li:first-child, .full-width #navigation ul li:first-child a { border-radius: 0 !important; }
+
+	// Cart + Search common stying
+	#navigation {
+		ul.cart,
+		ul.nav-search {
+			position: relative;
+
+			a.cart-contents,
+			a.search-contents {
+				padding: 1em;
+				margin: 0;
+				position: relative;
+				top: 0;
+				left: 0;
+				background: none;
+				color: #666;
+				border-radius: 0;
+				display: block;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&:before {
+					line-height: 1;
+					position: static;
+				}
+
+				+ ul {
+					display: block;
+					position: absolute;
+					right: 0;
+					top: 100%;
+					visibility: hidden;
+					width: 12em;
+					background: #e6e6e6;
+					padding: 1.414em;
+					@include box-sizing(border-box);
+				}
+			}
+
+			li {
+				&:hover {
+					a.cart-contents,
+					a.search-contents {
+						background: #e6e6e6;
+
+						+ ul {
+							visibility: visible;
+						}
+					}
+				}
+			}
+
+			.widget {
+				margin: 0;
+			}
+		}
+
+		// Search styling
+		ul.nav-search {
+			clear: none;
+			float: right;
+
+			a.search-contents {
+				&:before {
+					content: "\f002";
+				}
+
+				+ ul {
+					margin: 0;
+					padding: 0;
+				}
+			}
+
+			#searchform,
+			.searchform {
+				background: none;
+			}
+		}
+
+		// Cart styling
+		ul.cart {
+			h2 {
+				display: none;
+			}
+
+			.buttons {
+				margin-bottom: 0;
+			}
+
+			.button {
+				width: 100%;
+				margin-bottom: .5em;
+				font-size: .9em;
+				border-radius: 0;
+
+				&.checkout {
+					margin: 0;
+				}
+			}
+
+			.total {
+				border: 2px solid rgba(0,0,0,.05);
+				border-width: 2px 0;
+				padding: .8em 0;
+				text-align:right;
+			}
+		}
+
+		.cart-extended {
+			ul.cart {
+				a.cart-contents {
+					&:before {
+						height: 5em;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+/* Desktop size and sizes above 980 */
+@media only screen and ( min-width: $desktop ) {
+
+	#navigation {
+
+		// Cart styling
+		.cart-extended {
+			ul.cart {
+				a.cart-contents {
+					display: inline-block;
+					width: auto;
+					text-indent: 0;
+					overflow: visible;
+
+					&:before {
+						display: inline-block;
+						margin-right: .5em;
+						height: auto;
+					}
+				}
+			}
+		}
+
+		.menus {
+			@for $i from 1 through 4 {
+				 &.nav-icons-#{$i} {
+				 	$width: $i * 3;
+
+					&.cart-extended {
+						$width: $width + 9.5;
+
+						#main-nav {
+							margin-right: #{$width}em;
+						}
+
+						.side-nav {
+							width: #{$width}em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

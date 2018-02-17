@@ -1,0 +1,42 @@
+/**
+ * Subscribe and Connect
+ *
+ * Styles which integrate this theme with the Subscribe and Connect plugin.
+ * This stylesheet is only enqueued if Subscribe and Connect is activated.
+ * http://wordpress.org/plugins/subscribe-and-connect/
+ */
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+.subscribe-and-connect-connect {
+  padding: 15px;
+  margin: 0 0 1.5em;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  background-color: #fafafa; }
+  .subscribe-and-connect-connect h2 {
+    font: bold 16px/1.2em "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    margin-bottom: 0.4em; }
+  .subscribe-and-connect-connect .description p {
+    margin: 0 0 1.5em; }
+  .subscribe-and-connect-connect .newsletter-form {
+    margin: 0 0 1em; }
+  .subscribe-and-connect-connect .icons {
+    font-size: .857em; }
+
+.widget .subscribe-and-connect-connect {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: none; }

@@ -1,0 +1,79 @@
+/**
+ * Our Team
+ *
+ * Styles which integrate this with with Our Team.
+ * This stylesheet is only enqueued if Our Team is activated.
+ * http://wordpress.org/plugins/our-team-by-woothemes/
+ */
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+.widget_woothemes_our_team .team-member {
+  margin-bottom: 1.618em; }
+  .widget_woothemes_our_team .team-member .avatar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 1em;
+    width: 100%;
+    height: auto; }
+.widget_woothemes_our_team .author-details {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 0 !important; }
+  .widget_woothemes_our_team .author-details li {
+    list-style: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1em 0; }
+.widget_woothemes_our_team .role {
+  font-weight: 700; }
+
+@media only screen and (min-width: 980px) {
+  .widget_woothemes_our_team .columns-2:after,
+  .widget_woothemes_our_team .columns-3:after,
+  .widget_woothemes_our_team .columns-4:after,
+  .widget_woothemes_our_team .columns-5:after,
+  .widget_woothemes_our_team .columns-6:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .widget_woothemes_our_team .columns-2 .team-member,
+  .widget_woothemes_our_team .columns-3 .team-member,
+  .widget_woothemes_our_team .columns-4 .team-member,
+  .widget_woothemes_our_team .columns-5 .team-member,
+  .widget_woothemes_our_team .columns-6 .team-member {
+    float: left;
+    margin-right: 3.8%; }
+    .widget_woothemes_our_team .columns-2 .team-member.first,
+    .widget_woothemes_our_team .columns-3 .team-member.first,
+    .widget_woothemes_our_team .columns-4 .team-member.first,
+    .widget_woothemes_our_team .columns-5 .team-member.first,
+    .widget_woothemes_our_team .columns-6 .team-member.first {
+      clear: both; }
+    .widget_woothemes_our_team .columns-2 .team-member.last,
+    .widget_woothemes_our_team .columns-3 .team-member.last,
+    .widget_woothemes_our_team .columns-4 .team-member.last,
+    .widget_woothemes_our_team .columns-5 .team-member.last,
+    .widget_woothemes_our_team .columns-6 .team-member.last {
+      margin-right: 0; }
+  .widget_woothemes_our_team .columns-2 .team-member {
+    width: 48%; }
+  .widget_woothemes_our_team .columns-3 .team-member {
+    width: 30.75%; }
+  .widget_woothemes_our_team .columns-4 .team-member {
+    width: 22.05%; }
+  .widget_woothemes_our_team .columns-5 .team-member {
+    width: 16.9%; }
+  .widget_woothemes_our_team .columns-6 .team-member {
+    width: 13.5%; } }

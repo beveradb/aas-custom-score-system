@@ -1,0 +1,157 @@
+/**
+ * WooSlider Magazine Theme
+ *
+ * Style for the WooSlider Magazine theme.
+ * This stylesheet is only enqueued if the Magazine theme is being used.
+ */
+
+@import '../../../../css/modules/all';
+
+.wooslider-slider-magazine {
+	margin: 0 0 40px;
+}
+
+.wooslider-theme-magazine {
+
+	.slide-title {
+		color: #222222;
+		a {
+			color: #222222;
+		}
+	}
+
+	.has-featured-image {
+
+		.slide-content,
+		.slide-excerpt {
+			background: #000;
+			padding: 20px;
+		}
+
+		.slide-title {
+			color: #fff;
+			margin: 0;
+			background: rgba(0,0,0,.7);
+			@include clearfix;
+			a {
+				color: #fff;
+			}
+		}
+
+	}
+
+}
+
+@media only screen and ( min-width: $desktop ) {
+
+	.wooslider-theme-magazine {
+
+		.has-featured-image {
+
+			.slide-content,
+			.slide-excerpt {
+				background: none;
+				padding: 40px 0;
+				position: absolute;
+				color: #ccc;
+				z-index: 9;
+				p {
+					background: rgba(0,0,0,.7);
+					clear: both;
+					color: #ccc;
+					padding: 5px 20px 10px 20px;
+				}
+			}
+
+			.slide-title {
+				padding: 10px 20px;
+			}
+
+		}
+
+		.slide-content {
+			position: relative;
+		}
+
+		.layout-text-bottom {
+			&.has-featured-image {
+				text-align: center;
+			    .slide-content,
+			    .slide-excerpt {
+			    	left: 0;
+			    	bottom: 0;
+			    	right: 0;
+			    }
+			}
+		}
+
+		.layout-text-top {
+			&.has-featured-image {
+				text-align: center;
+				.slide-content,
+				.slide-excerpt {
+					left: 0;
+					top: 0;
+					right: 0;
+				}
+			}
+		}
+
+		.layout-text-left,
+		.layout-text-right {
+			img {
+				float: none;
+				width: 100%;
+			}
+			.slide-excerpt {
+				float: none;
+				width: auto;
+			}
+			&.has-featured-image {
+			    .slide-content,
+			    .slide-excerpt {
+			    	width: 350px;
+			    }
+			}
+		}
+
+		.layout-text-left {
+		    @include clearfix;
+			&.has-featured-image {
+			    .slide-content,
+			    .slide-excerpt {
+			    	top: 0;
+			    	left: 0;
+			    }
+			    .slide-media {
+			    	float: right;
+			    }
+
+			    .slide-title {
+			    	float: left;
+			    }
+			}
+		}
+
+		.layout-text-right {
+		    @include clearfix;
+	   		&.has-featured-image {
+			    .slide-content,
+			    .slide-excerpt {
+			    	top: 0;
+			    	right: 0;
+			    }
+
+			    .slide-media {
+			    	float: left;
+			    }
+
+			    .slide-title {
+			    	float: right;
+			    }
+			}
+		}
+
+	}
+
+}

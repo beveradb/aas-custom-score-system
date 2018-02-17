@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+  <filter id="svgFilter">
+    <feGaussianBlur stdDeviation="0" in="SourceGraphic" id="blur_svg"/>
+    <feColorMatrix values="1" type="saturate" id="saturate_svg"/>
+	
+    <feComponentTransfer id="brightness_svg">
+        <feFuncR slope="1.2" type="linear"/>
+        <feFuncG slope="1.2" type="linear"/>
+        <feFuncB slope="1.2" type="linear"/>
+    </feComponentTransfer>
+
+    <feColorMatrix id="sepia_svg" values="1 0 0 0 0
+                       0 1 0 0 0
+                       0 0 1 0 0 
+                       0 0 0 1 0" type="matrix"/>
+    
+    <feColorMatrix values="0" type="hueRotate" id="hue_svg"/>
+  </filter>
+</svg>

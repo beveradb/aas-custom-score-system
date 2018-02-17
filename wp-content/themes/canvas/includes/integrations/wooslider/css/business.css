@@ -1,0 +1,120 @@
+/**
+ * WooSlider Business Theme
+ *
+ * Style for the WooSlider Business theme.
+ * This stylesheet is only enqueued if the Business theme is being used.
+ */
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+.wooslider-slider-business {
+  margin: 0 0 40px; }
+
+.wooslider-theme-business .has-featured-image .slide-content,
+.wooslider-theme-business .has-featured-image .slide-excerpt {
+  background: #000;
+  padding: 20px; }
+
+@media only screen and (min-width: 980px) {
+  .wooslider-theme-business .slides img {
+    box-sizing: border-box;
+    display: block;
+    width: auto;
+    z-index: -1; }
+  .wooslider-theme-business .has-featured-image img {
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    -webkit-backface-visibility: hidden; }
+  .wooslider-theme-business .has-featured-image .slide-content,
+  .wooslider-theme-business .has-featured-image .slide-excerpt {
+    padding: 15px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    color: #ccc;
+    z-index: 9; }
+    .wooslider-theme-business .has-featured-image .slide-content p,
+    .wooslider-theme-business .has-featured-image .slide-excerpt p {
+      color: #ccc;
+      padding: 5px 20px 10px 20px; }
+      .wooslider-theme-business .has-featured-image .slide-content p:last-child,
+      .wooslider-theme-business .has-featured-image .slide-excerpt p:last-child {
+        padding-bottom: 0; }
+  .wooslider-theme-business .has-featured-image .slide-title {
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0; }
+    .wooslider-theme-business .has-featured-image .slide-title a {
+      color: #fff; }
+  .wooslider-theme-business .slide-content {
+    position: relative; }
+  .wooslider-theme-business .slide > .slide-content:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .wooslider-theme-business .layout-text-bottom.has-featured-image {
+    text-align: center; }
+    .wooslider-theme-business .layout-text-bottom.has-featured-image .slide-content,
+    .wooslider-theme-business .layout-text-bottom.has-featured-image .slide-excerpt {
+      left: 0;
+      bottom: 0;
+      right: 0; }
+  .wooslider-theme-business .layout-text-top.has-featured-image {
+    text-align: center; }
+    .wooslider-theme-business .layout-text-top.has-featured-image .slide-content,
+    .wooslider-theme-business .layout-text-top.has-featured-image .slide-excerpt {
+      left: 0;
+      top: 0;
+      right: 0; }
+  .wooslider-theme-business .layout-text-left.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-left.has-featured-image .slide-excerpt,
+  .wooslider-theme-business .layout-text-right.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-right.has-featured-image .slide-excerpt {
+    width: 350px; }
+  .wooslider-theme-business .layout-text-left.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-left.has-featured-image .slide-excerpt {
+    top: 0;
+    left: 0;
+    bottom: 0; }
+  .wooslider-theme-business .layout-text-left.has-featured-image .slide-media {
+    float: right; }
+  .wooslider-theme-business .layout-text-right.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-right.has-featured-image .slide-excerpt {
+    top: 0;
+    right: 0;
+    bottom: 0; }
+  .wooslider-theme-business .layout-text-right.has-featured-image .slide-media {
+    float: left; }
+  .wooslider-theme-business .layout-text-center.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-center.has-featured-image .slide-excerpt, .wooslider-theme-business .layout-text-none.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-none.has-featured-image .slide-excerpt {
+    width: 50%;
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: inherit;
+    text-align: center;
+    margin: 0 auto; }
+  .wooslider-theme-business .layout-text-none.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-none.has-featured-image .slide-excerpt {
+    background: none; }
+  .wooslider-theme-business .layout-text-full.has-featured-image .slide-content,
+  .wooslider-theme-business .layout-text-full.has-featured-image .slide-excerpt {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding-top: 7%; } }

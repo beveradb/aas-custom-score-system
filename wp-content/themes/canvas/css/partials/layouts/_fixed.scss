@@ -1,0 +1,70 @@
+body.fixed-mobile { padding: 0; }
+body.fixed-mobile #top { padding:0; margin: 0; }
+
+body.fixed-mobile #navigation { position:relative; padding-top:0; }
+
+body.fixed-mobile #navigation .nav-close, body.fixed-mobile #navigation .nav-home, { display:none; }
+
+@media only screen and ( max-width: 767px ) {
+
+	// Navigation for fixed-width mobile view
+	body.fixed-mobile .nav-toggle { display:none; } // Removes responsive mobile nav when fixed-width is selected
+	body.fixed-mobile #navigation { width:100%; margin-bottom:0; }
+	body.fixed-mobile #navigation ul { margin-bottom:0; }
+	body.fixed-mobile #navigation ul.nav > li { display:inline-block; }
+	body.fixed-mobile #navigation ul.nav li a { padding:1em; }
+	body.fixed-mobile #navigation ul.nav > li > ul { left:0; }
+
+	body.fixed-mobile #navigation ul.nav ul {
+		width: 12em;
+		visibility: hidden;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 9999;
+		margin: 0;
+		padding: 0.4em 0;
+	}
+
+	body.fixed-mobile #navigation ul.nav ul li { float:none; }
+
+	body.fixed-mobile #navigation .nav li.parent > a:after {
+		font-family: "FontAwesome";
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: inherit;
+		width: 1.5em;
+		content: "\f0d7";
+		color: rgba(0, 0, 0, 0.4);
+		font-size: .857em;
+		margin-top: 2px;
+		speak: none;
+		width: 1.387em;
+		display: inline-block;
+		text-align: right;
+		line-height: 1;
+	}
+
+	body.fixed-mobile #navigation ul.nav li a:hover { text-decoration: none; }
+	body.fixed-mobile #navigation ul.nav ul { background: #e6e6e6; }
+	body.fixed-mobile #navigation ul.nav ul li { float: none; }
+
+	body.fixed-mobile #navigation ul.nav > li > ul { left: 0; }
+	body.fixed-mobile  #navigation ul.nav > li > ul li a:hover { text-decoration: underline; }
+
+	body.fixed-mobile #navigation ul.nav li {
+		position: relative;
+		float: left;
+		zoom: 1;
+		list-style: none;
+	}
+
+	body.fixed-mobile #navigation ul.nav li.parent > a { position: relative; }
+	body.fixed-mobile #navigation ul.nav li:hover > ul { visibility: visible; }
+
+	// Navigation: 3rd-level dropdown
+	body.fixed-mobile #navigation ul.nav ul ul { top: -5px; left: 100%; }
+	body.fixed-mobile #navigation ul.nav li.parent ul.children li.parent > a:after { content: "\f0da"!important; float: right; position: absolute; top: 1em; right: 1em; text-decoration: none!important; }
+	//
+
+}

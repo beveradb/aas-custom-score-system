@@ -1,0 +1,189 @@
+/**
+ * Projects
+ *
+ * Styles which integrate this with with Projects.
+ * This stylesheet is only enqueued if Projects is activated.
+ * http://wordpress.org/plugins/projects-by-woothemes/
+ */
+.fa, .widget_projects_categories li:before, .widget_projects_categories ul.children li:before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw, .widget_projects_categories li:before, .widget_projects_categories ul.children li:before {
+  width: 1.28571em;
+  text-align: center; }
+
+.projects ul.projects,
+.projects-page ul.projects {
+  @includes clearfix;
+  list-style: none;
+  padding: 0; }
+  .projects ul.projects li.project,
+  .projects-page ul.projects li.project {
+    width: 48%;
+    float: left;
+    clear: both;
+    margin-bottom: 1.618em;
+    list-style: none; }
+    .projects ul.projects li.project a h3,
+    .projects-page ul.projects li.project a h3 {
+      font-size: 14px;
+      color: #428bca;
+      margin: 0 0 10px; }
+    .projects ul.projects li.project a:hover h3,
+    .projects-page ul.projects li.project a:hover h3 {
+      color: #FF4800; }
+    .projects ul.projects li.project img,
+    .projects-page ul.projects li.project img {
+      display: block;
+      height: auto;
+      margin-bottom: 1em;
+      padding: 3px;
+      border: 1px solid #e6e6e6;
+      background: #F8F8F8;
+      background: rgba(255, 255, 255, 0.7); }
+    .projects ul.projects li.project:nth-child(2n),
+    .projects-page ul.projects li.project:nth-child(2n) {
+      margin-right: 0;
+      float: right;
+      clear: none; }
+.projects .project h2,
+.projects-page .project h2 {
+  margin: 0 0 .5em; }
+.projects .project img,
+.projects-page .project img {
+  height: auto; }
+.projects .single-featured,
+.projects-page .single-featured {
+  margin-bottom: 1.618em; }
+.projects.has-gallery .gallery img,
+.projects-page.has-gallery .gallery img {
+  height: auto;
+  margin-bottom: 1.618em; }
+.projects .project-meta:after,
+.projects-page .project-meta:after {
+  content: "";
+  display: table;
+  clear: both; }
+.projects .project-meta h3,
+.projects-page .project-meta h3 {
+  font-size: 15px;
+  color: #555;
+  margin: 0 0 5px; }
+.projects .project-meta .categories,
+.projects .project-meta .client,
+.projects .project-meta .url,
+.projects-page .project-meta .categories,
+.projects-page .project-meta .client,
+.projects-page .project-meta .url {
+  margin-bottom: 1.618em; }
+.projects .project-meta .single-project-categories,
+.projects-page .project-meta .single-project-categories {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0; }
+  .projects .project-meta .single-project-categories li,
+  .projects-page .project-meta .single-project-categories li {
+    list-style: none; }
+.projects .project-testimonial,
+.projects-page .project-testimonial {
+  padding-top: 1.618em;
+  border-top: 1px solid #e6e6e6; }
+
+/**
+ * Widgets
+ */
+.widget_projects_items li,
+.widget_projects_categories li {
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #e6e6e6; }
+  .widget_projects_items li:after,
+  .widget_projects_categories li:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .widget_projects_items li:last-child,
+  .widget_projects_categories li:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0; }
+
+.widget_projects_items img {
+  width: 2.618em;
+  height: auto;
+  float: right; }
+
+.widget_projects_categories li {
+  list-style: none; }
+  .widget_projects_categories li:before {
+    content: "\f07b"; }
+.widget_projects_categories ul.children {
+  padding-top: 1em; }
+  .widget_projects_categories ul.children li:before {
+    content: "\f114"; }
+  .widget_projects_categories ul.children li:first-child {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 1em; }
+
+@media only screen and (min-width: 980px) {
+  .projects.no-gallery .summary:after,
+  .projects-page.no-gallery .summary:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .projects.no-gallery .project-meta > div,
+  .projects-page.no-gallery .project-meta > div {
+    width: auto;
+    float: none;
+    clear: none; }
+  .projects.no-gallery.no-cover-image .entry-media,
+  .projects-page.no-gallery.no-cover-image .entry-media {
+    display: none; }
+  .projects.no-gallery.no-cover-image .entry-summary,
+  .projects-page.no-gallery.no-cover-image .entry-summary {
+    width: 100%; }
+  .projects.has-gallery .project:after,
+  .projects-page.has-gallery .project:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .projects .entry-media,
+  .projects-page .entry-media {
+    width: 57%;
+    float: left; }
+  .projects .entry-summary,
+  .projects-page .entry-summary {
+    width: 40%;
+    float: right; }
+
+  .projects.columns-2:after, .projects.columns-3:after, .projects.columns-4:after, .projects.columns-5:after, .projects.columns-6:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .projects.columns-2 ul.projects li.project, .projects.columns-3 ul.projects li.project, .projects.columns-4 ul.projects li.project, .projects.columns-5 ul.projects li.project, .projects.columns-6 ul.projects li.project {
+    float: left;
+    margin-right: 3.8%;
+    clear: none; }
+    .projects.columns-2 ul.projects li.project.first, .projects.columns-3 ul.projects li.project.first, .projects.columns-4 ul.projects li.project.first, .projects.columns-5 ul.projects li.project.first, .projects.columns-6 ul.projects li.project.first {
+      clear: both; }
+    .projects.columns-2 ul.projects li.project.last, .projects.columns-3 ul.projects li.project.last, .projects.columns-4 ul.projects li.project.last, .projects.columns-5 ul.projects li.project.last, .projects.columns-6 ul.projects li.project.last {
+      margin-right: 0; }
+    .projects.columns-2 ul.projects li.project:nth-child(2), .projects.columns-3 ul.projects li.project:nth-child(2), .projects.columns-4 ul.projects li.project:nth-child(2), .projects.columns-5 ul.projects li.project:nth-child(2), .projects.columns-6 ul.projects li.project:nth-child(2) {
+      float: left;
+      clear: none; }
+  .projects.columns-2 ul.projects li.project {
+    width: 48%; }
+  .projects.columns-3 ul.projects li.project {
+    width: 30.75%; }
+  .projects.columns-4 ul.projects li.project {
+    width: 22.05%; }
+  .projects.columns-5 ul.projects li.project {
+    width: 16.9%; }
+  .projects.columns-6 ul.projects li.project {
+    width: 13.5%; } }

@@ -1,0 +1,56 @@
+[06-Apr-2016 16:26:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[06-Apr-2016 16:27:02 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[06-Apr-2016 16:27:15 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[06-Apr-2016 16:27:17 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[07-Apr-2016 12:07:10 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[07-Apr-2016 12:07:19 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[07-Apr-2016 15:09:31 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98
+[11-Apr-2016 09:31:46 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`abingdon_wp`.`ss_teams`, CONSTRAINT `ss_teams_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `ss_sections` (`id`) ON DELETE CASCADE)' in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php:98
+Stack trace:
+#0 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php(98): PDOStatement->execute()
+#1 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(551): DataTables\Database\DriverMysqlQuery->_exec()
+#2 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Query.php(197): DataTables\Database\Query->_insert()
+#3 /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Database.php(122): DataTables\Database\Query->exec()
+#4 /home/abingdon/public_html/wp-content/themes/canvas/inc in /home/abingdon/public_html/wp-content/themes/canvas/includes/php/lib/Database/Driver/Mysql/Query.php on line 98

@@ -1,0 +1,266 @@
+/**
+ * Projects
+ *
+ * Styles which integrate this with with Projects.
+ * This stylesheet is only enqueued if Projects is activated.
+ * http://wordpress.org/plugins/projects-by-woothemes/
+ */
+
+@import '../../../../css/modules/all';
+
+// Layout
+.projects,
+.projects-page {
+	ul.projects {
+		@includes clearfix;
+		list-style: none;
+		padding: 0;
+		li.project {
+			width: 48%;
+			float: left;
+			clear: both;
+			margin-bottom: 1.618em;
+			list-style: none;
+
+			a {
+				h3 {
+					font-size: 14px;
+					color: $color_links;
+					margin: 0 0 10px;
+				}
+				&:hover {
+					h3 {
+						color: #FF4800;
+					}
+				}
+			}
+
+			img {
+				display: block;
+				height: auto;
+				margin-bottom: 1em;
+				padding: 3px;
+				border: 1px solid #e6e6e6;
+				background: #F8F8F8;
+				background: rgba(255,255,255,0.7);
+			}
+
+			&:nth-child(2n) {
+				margin-right: 0;
+				float: right;
+				clear: none;
+			}
+		}
+	}
+
+	.project {
+		h2 {
+			margin: 0 0 .5em;
+		}
+		img {
+			height: auto;
+		}
+	}
+
+	.single-featured {
+		margin-bottom: 1.618em;
+	}
+
+	&.has-gallery {
+		.gallery {
+			img {
+				height: auto;
+				margin-bottom: 1.618em;
+			}
+		}
+	}
+
+	.project-meta {
+		@include clearfix;
+
+		h3 {
+			font-size: 15px;
+			color: #555;
+			margin: 0 0 5px;
+		}
+
+		.categories,
+		.client,
+		.url {
+			margin-bottom: 1.618em;
+		}
+
+		.single-project-categories {
+			list-style: none;
+			margin-bottom: 0;
+			padding: 0;
+			li {
+				list-style: none;
+			}
+		}
+
+	}
+
+	.project-testimonial {
+		padding-top: 1.618em;
+		border-top: 1px solid $border_main;
+	}
+
+}
+
+/**
+ * Widgets
+ */
+.widget_projects_items,
+.widget_projects_categories {
+	li {
+		@include clearfix;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+		border-bottom: 1px solid #e6e6e6;
+
+		&:last-child {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+}
+
+.widget_projects_items {
+	img {
+		width: 2.618em;
+		height: auto;
+		float: right;
+	}
+}
+
+.widget_projects_categories {
+	li {
+		list-style: none;
+
+		&:before {
+			@include iconbefore( "\f07b" );
+		}
+	}
+
+	ul.children {
+		padding-top: 1em;
+
+		li {
+			&:before {
+				@include iconbefore( "\f114" );
+			}
+
+			&:first-child {
+				border-top: 1px solid #e6e6e6;
+				padding-top: 1em;
+			}
+		}
+	}
+}
+
+@media only screen and ( min-width: $desktop ) {
+	.projects,
+	.projects-page {
+		&.no-gallery {
+			.summary {
+				@include clearfix;
+			}
+
+			.project-meta {
+				> div {
+					width: auto;
+					float: none;
+					clear: none;
+				}
+			}
+		}
+
+		&.no-gallery {
+			&.no-cover-image {
+				.entry-media {
+					display: none;
+				}
+				.entry-summary {
+					width: 100%;
+				}
+			}
+		}
+
+		&.has-gallery {
+			.project {
+				@include clearfix;
+			}
+		}
+
+		.entry-media {
+			width: 57%;
+			float: left;
+		}
+
+		.entry-summary {
+			width: 40%;
+			float: right;
+		}
+
+	}
+
+	.projects {
+		&.columns-2,
+		&.columns-3,
+		&.columns-4,
+		&.columns-5,
+		&.columns-6 {
+			@include clearfix;
+
+			ul.projects li.project {
+				float: left;
+				margin-right: 3.8%;
+				clear: none;
+				&.first {
+					clear: both;
+				}
+
+				&.last {
+					margin-right: 0;
+				}
+
+				&:nth-child(2) {
+					float: left;
+					clear: none;
+				}
+			}
+		}
+
+		&.columns-2 {
+			ul.projects li.project {
+				width: 48%;
+			}
+		}
+
+		&.columns-3 {
+			ul.projects li.project {
+				width: 30.75%;
+			}
+		}
+
+		&.columns-4 {
+			ul.projects li.project {
+				width: 22.05%;
+			}
+		}
+
+		&.columns-5 {
+			ul.projects li.project {
+				width: 16.9%;
+			}
+		}
+
+		&.columns-6 {
+			ul.projects li.project {
+				width: 13.5%;
+			}
+		}
+	}
+}

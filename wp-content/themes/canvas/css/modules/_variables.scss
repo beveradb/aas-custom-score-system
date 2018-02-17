@@ -1,0 +1,23 @@
+// Sass variables
+
+// Colors
+$color_links:       #428bca;        // Links / Main theme colour
+$color_body:        #555555;        // Body Copy
+$border_main:       #e6e6e6;        // The 1px grey rules used throughout the WF
+$bg_body:			#ffffff;
+$bg_light:          #f0f0f0;
+$bg_dark:           #000000;
+$success:           #89b93f;
+$info:              #eeeeee;
+$error:             #ffd9c8;
+
+// Fonts
+$font_default:		$helvetica;
+
+// Paths
+$imagepath:         'images';
+$fontpath:          'includes/fonts/';
+
+// Responsive
+$tablet:			768px;
+$desktop:           980px;

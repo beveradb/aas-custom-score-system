@@ -1,0 +1,129 @@
+/**
+ * Testimonials
+ *
+ * Styles which integrate this theme with the Testimonials plugin.
+ * This stylesheet is only enqueued if Testimonials is activated.
+ * http://wordpress.org/plugins/testimonials-by-woothemes/
+ */
+
+@import '../../../../css/modules/all';
+
+.widget_woothemes_testimonials  {
+	.quote  {
+	    width: 100%;
+	    list-style: none;
+	    margin-bottom: 2.618em;
+	    float: left;
+
+	    blockquote  {
+	    	padding: 0 !important;
+	    	margin: 0 !important;
+
+	    	&:before {
+	    		display: none !important;
+	    	}
+	    }
+
+
+
+	    .avatar  {
+	    	position: relative;
+	    	display: inline-block;
+	    	float: left;
+	    	margin: 0 1em 1em 0;
+	    }
+
+	    .author  {
+	    	display: inline-block;
+	    	margin: 0;
+	    	font-weight: 700;
+	    	font-style: normal;
+			-ms-word-break: break-all;
+			word-break: break-all;
+			word-break: break-word;
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			hyphens: auto;
+	    	.name {
+	    		display: block;
+	    	}
+
+	    	.title {
+	    		display: block;
+	    		font-size: 1em;
+	    		font-weight: normal;
+	    		color: #999;
+	    		margin: 0;
+	    	}
+
+	    	.excerpt  {
+	    		display: block;
+	    		font-weight: normal;
+	    		font-style: italic;
+	    	}
+
+	    	.url  {
+	    		display: block;
+	    		font-weight: 400;
+	    	}
+	    }
+	}
+}
+
+// Layout
+@media only screen and ( min-width: $desktop ) {
+	#main {
+		.widget_woothemes_testimonials {
+			.columns-2,
+			.columns-3,
+			.columns-4,
+			.columns-5,
+			.columns-6 {
+				@include clearfix;
+
+				.quote {
+					float: left;
+					margin-right: 3.8%;
+
+					&.first {
+						clear: both;
+					}
+
+					&.last {
+						margin-right: 0;
+					}
+				}
+			}
+
+			.columns-2 {
+				.quote {
+					width: 48%;
+				}
+			}
+
+			.columns-3 {
+				.quote {
+					width: 30.75%;
+				}
+			}
+
+			.columns-4 {
+				.quote {
+					width: 22.05%;
+				}
+			}
+
+			.columns-5 {
+				.quote {
+					width: 16.9%;
+				}
+			}
+
+			.columns-6 {
+				.quote {
+					width: 13.5%;
+				}
+			}
+		}
+	}
+}

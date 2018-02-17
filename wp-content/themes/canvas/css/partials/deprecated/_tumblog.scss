@@ -1,0 +1,16 @@
+/* Tumblog */
+.post .post-icon a:before  { display: block; height: 50px; width: 50px; padding-top: 0.7em; font-size: 1.7em; color: #fff; text-align: center; }
+.post .post-icon.link a:before  { font-family: "FontAwesome"; content: "\f0c1"; }
+.post .post-icon.video a:before  { font-family: "FontAwesome"; content: "\f03d"; }
+.post .post-icon.article a:before  { font-family: "FontAwesome"; content: "\f0f6"; }
+.post .post-icon.audio a:before  { font-family: "FontAwesome"; content: "\f026"; }
+.post .post-icon.image a:before  { font-family: "FontAwesome"; content: "\f03e"; }
+.post .post-icon.quote a:before  { font-family: "FontAwesome"; content: "\f10d"; }
+
+/* 6.5 Tumblog */
+/*
+.entry .quote, .entry .video  { margin-bottom:1.5em; }
+.entry .quote blockquote { font-style:italic; }
+.entry .quote cite { text-align: right; font-style: normal; display: block; font: 0.9em sans-serif; }
+.entry .quote cite:before  { content: '~ ' }
+*/

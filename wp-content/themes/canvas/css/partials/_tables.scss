@@ -1,0 +1,79 @@
+// Bourbon
+@import "bourbon";
+
+.entry table {
+    border-spacing: 0;
+    width:100%;
+    border:1px solid #eee;
+    border-radius: 4px;
+    background: #fff;
+    @include box_shadow( 0, 1px, 2px, 0, #eee + #242424 );
+
+    border-collapse: separate;
+    margin-bottom:1.5em;
+    td,th {
+      padding:.857em 1.387em;
+      text-align: left;
+      border-right:1px dotted #eee;
+      vertical-align: top;
+      p:last-child {
+      	margin-bottom:0;
+      }
+    }
+    thead {
+      th {
+      	background: #fafafa;
+        border-right:1px solid #eee;
+        border-bottom:1px solid #eee;
+        text-transform: uppercase;
+        padding:1.387em;
+        vertical-align: middle;
+        &:first-child {
+          @include border-left-radius(4px);
+          @include border-bottom-radius(0);
+        }
+        &:last-child {
+          @include border-right-radius(4px);
+          @include border-bottom-radius(0);
+        }
+      }
+    }
+    tr {
+      th:last-child, td:last-child {
+        border-right:0;
+      }
+    }
+    tbody {
+      th {
+      	background: #fafafa;
+      	border-bottom:1px solid #eee;
+      }
+      td {
+        border-bottom:1px solid #eee;
+      }
+      h2 {
+        font-size: 1em;
+        letter-spacing: normal;
+        font-weight: normal;
+        a {
+          font-weight: normal;
+        }
+      }
+      tr:last-child {
+        td:first-child {
+          @include border-bottom-radius(4px);
+          @include border-right-radius(0);
+        }
+        td:last-child {
+          @include border-bottom-radius(4px);
+          @include border-left-radius(0);
+        }
+        td {
+          border-bottom: 0;
+        }
+        th {
+        	border-bottom:0;
+        }
+      }
+    }
+}

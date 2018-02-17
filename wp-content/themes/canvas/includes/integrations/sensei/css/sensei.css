@@ -1,0 +1,784 @@
+/**
+ * Sensei
+ *
+ * Styles which integrate this theme with Sensei.
+ * This stylesheet is only enqueued if Sensei is activated.
+ * http://www.woothemes.com/products/sensei/
+ */
+.fa, .status.in-progress:before, .status.completed:before, .status.register:before, a.view-results:after,
+a.view-results-link:after,
+a.sensei-certificate-link:after, .lesson-status.in-progress:before, .lesson-status.completed:before, .lesson-status.complete:before, .lesson-status.register:before, .lesson-course:before, .sensei-course-meta > span.lesson-course:before, #post-entries .nav-prev a:before, #post-entries .nav-next a:after {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw, .status.in-progress:before, .status.completed:before, .status.register:before, a.view-results:after,
+a.view-results-link:after,
+a.sensei-certificate-link:after, .lesson-status.in-progress:before, .lesson-status.completed:before, .lesson-status.complete:before, .lesson-status.register:before, .lesson-course:before, .sensei-course-meta > span.lesson-course:before, #post-entries .nav-prev a:before, #post-entries .nav-next a:after {
+  width: 1.28571em;
+  text-align: center; }
+
+.meter {
+  clear: both;
+  height: 1.618em;
+  background: #f0f0f0;
+  margin-bottom: 1.618em;
+  position: relative; }
+  .meter span {
+    display: inline-block;
+    background: #428bca;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: #fff;
+    font-weight: 700;
+    min-width: 2.618em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: .618em;
+    text-align: right; }
+
+.status {
+  display: inline-block;
+  padding: .236em .857em;
+  background: #e6e6e6;
+  font-weight: 700; }
+  .status.in-progress:before {
+    content: "\f10c"; }
+  .status.completed {
+    background: #89b93f;
+    color: #fff; }
+    .status.completed:before {
+      content: "\f05d"; }
+  .status.register {
+    color: #fff;
+    background: #428bca; }
+    .status.register:before {
+      content: "\f007"; }
+
+a.view-results,
+a.view-results-link,
+a.sensei-certificate-link {
+  display: inline-block;
+  padding: .236em .857em;
+  background: #e6e6e6;
+  float: right;
+  margin-left: .236em; }
+  a.view-results:after,
+  a.view-results-link:after,
+  a.sensei-certificate-link:after {
+    content: "\f18e";
+    text-decoration: none; }
+
+.lesson-status.in-progress:before {
+  content: "\f10c"; }
+.lesson-status.completed, .lesson-status.complete {
+  color: #89b93f; }
+  .lesson-status.completed:before, .lesson-status.complete:before {
+    content: "\f05d"; }
+.lesson-status.register:before {
+  content: "\f007"; }
+
+.lesson-course:before {
+  content: "\f112"; }
+
+.course-price {
+  font-weight: 700; }
+  .course-price del {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    font-weight: normal;
+    margin-right: .236em; }
+  .course-price ins {
+    text-decoration: none;
+    background: none; }
+
+.answer_message {
+  padding: 1em 1.618em 1em 5em;
+  border-top: 0.202em solid #eeeeee;
+  background: #f0f0f0;
+  margin-bottom: 2.618em;
+  font-weight: normal;
+  position: relative;
+  color: #666;
+  margin: 1em 0 !important; }
+  .answer_message:before {
+    font-family: 'FontAwesome';
+    content: "\f129";
+    color: #eeeeee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2.618em;
+    background: #ebebeb;
+    text-align: center;
+    padding: 1em .618em;
+    font-weight: normal !important; }
+  .answer_message.user_right, .answer_message.user_wrong {
+    color: #555555; }
+  .answer_message.user_right {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #89b93f;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .answer_message.user_right:before {
+      font-family: 'FontAwesome';
+      content: "\f05d";
+      color: #89b93f;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+  .answer_message.user_wrong {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #ffd9c8;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .answer_message.user_wrong:before {
+      font-family: 'FontAwesome';
+      content: "\f05c";
+      color: #ffd9c8;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+  .answer_message.has_notes span {
+    border-bottom: 1px dotted;
+    cursor: help; }
+  .answer_message.has_notes .notes {
+    position: absolute;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 1em 1.618em 0;
+    font-weight: normal; }
+
+.user_right {
+  color: #89b93f; }
+
+.user_wrong {
+  color: #ffd9c8; }
+
+.course .woo-sc-box {
+  clear: both; }
+
+#main .course .entry-actions span,
+#main .course-container .entry-actions span {
+  margin: 0 1em 0 0; }
+
+.course-container .course {
+  clear: both;
+  margin: 0 0 20px; }
+  .course-container .course:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .course-container .course h2 {
+    margin: 0 0 0.3em; }
+    .course-container .course h2 a:link, .course-container .course h2 a:visited {
+      color: #222; }
+
+.tax-course-category .course-container .type-course {
+  clear: both; }
+  .tax-course-category .course-container .type-course .entry {
+    clear: none; }
+
+.sensei-course-meta > span {
+  color: #888888;
+  font-size: 12px;
+  margin-right: .5em;
+  padding-right: .5em;
+  border-right: 1px solid #e6e6e6; }
+  .sensei-course-meta > span:last-child {
+    border: 0;
+    margin-right: 0;
+    padding-right: 0; }
+  .sensei-course-meta > span.lesson-course:before {
+    content: "\f148";
+    width: auto;
+    margin-right: .236em;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+.sensei-course-meta a:link, .sensei-course-meta a:visited {
+  color: #888888;
+  font-weight: bold; }
+
+.single-course header h1 {
+  margin: 0 0 .5em; }
+.single-course .course-meta {
+  margin-bottom: 1.618em; }
+  .single-course .course-meta:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .single-course .course-meta .status {
+    float: left;
+    margin-right: .236em; }
+  .single-course .course-meta .view-results {
+    float: right; }
+.single-course .course-video {
+  margin-bottom: 1.618em; }
+
+.course .total-grade {
+  border-top: 2px solid #e6e6e6;
+  padding-top: 1em;
+  margin-top: 1em; }
+.course .lesson-grade {
+  float: right; }
+
+.course-lessons .course-completion-rate,
+.module-lessons .course-completion-rate {
+  float: right;
+  color: #888888;
+  font-style: italic;
+  margin: 0 0 .5em; }
+.course-lessons .lesson, .course-lessons .module,
+.module-lessons .lesson,
+.module-lessons .module {
+  margin: 0 0 20px; }
+  .course-lessons .lesson:after, .course-lessons .module:after,
+  .module-lessons .lesson:after,
+  .module-lessons .module:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .course-lessons .lesson header h2, .course-lessons .module header h2,
+  .module-lessons .lesson header h2,
+  .module-lessons .module header h2 {
+    margin: 0 0 0.3em; }
+    .course-lessons .lesson header h2 a:link, .course-lessons .lesson header h2 a:visited, .course-lessons .module header h2 a:link, .course-lessons .module header h2 a:visited,
+    .module-lessons .lesson header h2 a:link,
+    .module-lessons .lesson header h2 a:visited,
+    .module-lessons .module header h2 a:link,
+    .module-lessons .module header h2 a:visited {
+      color: #222; }
+  .course-lessons .lesson .lesson-meta, .course-lessons .module .lesson-meta,
+  .module-lessons .lesson .lesson-meta,
+  .module-lessons .module .lesson-meta {
+    margin: 0 0 1.8em; }
+    .course-lessons .lesson .lesson-meta > span, .course-lessons .module .lesson-meta > span,
+    .module-lessons .lesson .lesson-meta > span,
+    .module-lessons .module .lesson-meta > span {
+      font-size: 12px;
+      color: #888888;
+      margin-right: .5em;
+      padding-right: .5em;
+      border-right: 1px solid #e6e6e6; }
+      .course-lessons .lesson .lesson-meta > span:last-child, .course-lessons .module .lesson-meta > span:last-child,
+      .module-lessons .lesson .lesson-meta > span:last-child,
+      .module-lessons .module .lesson-meta > span:last-child {
+        border: 0;
+        margin-right: 0;
+        padding-right: 0; }
+    .course-lessons .lesson .lesson-meta a:link, .course-lessons .lesson .lesson-meta a:visited, .course-lessons .module .lesson-meta a:link, .course-lessons .module .lesson-meta a:visited,
+    .module-lessons .lesson .lesson-meta a:link,
+    .module-lessons .lesson .lesson-meta a:visited,
+    .module-lessons .module .lesson-meta a:link,
+    .module-lessons .module .lesson-meta a:visited {
+      color: #888888;
+      font-weight: bold; }
+
+.single-lesson header h1 {
+  margin: 0 0 .5em; }
+.single-lesson .video {
+  margin: 0 0 1.618em; }
+
+#lesson_complete p {
+  margin: 0 0 1.2em; }
+#lesson_complete .reset {
+  background: #FF4800; }
+
+.module .module-lessons ul {
+  list-style: none; }
+
+.single-quiz .multiple-choice > span {
+  font-weight: 700; }
+.single-quiz .multiple-choice ul {
+  margin-left: 0; }
+  .single-quiz .multiple-choice ul li {
+    list-style: none; }
+
+#sensei-quiz-list {
+  list-style: none; }
+  #sensei-quiz-list > li {
+    margin-bottom: 2.618em;
+    padding: 1.618em;
+    border: 1px solid #e6e6e6; }
+    #sensei-quiz-list > li ul {
+      list-style: none;
+      margin: 0; }
+    #sensei-quiz-list > li .user_right,
+    #sensei-quiz-list > li .right_answer,
+    #sensei-quiz-list > li .user_wrong {
+      font-weight: 700; }
+
+.learner-info .avatar {
+  float: right;
+  margin: 0 0 1.618em 1em; }
+.learner-info + h2 {
+  clear: both; }
+
+#my-courses .ui-tabs-nav {
+  padding-left: 0; }
+  #my-courses .ui-tabs-nav li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 1em; }
+    #my-courses .ui-tabs-nav li.ui-state-active {
+      font-weight: bold; }
+      #my-courses .ui-tabs-nav li.ui-state-active a {
+        color: #428bca; }
+    #my-courses .ui-tabs-nav li:last-child {
+      margin-right: 0; }
+    #my-courses .ui-tabs-nav li a {
+      color: #888888;
+      text-decoration: none; }
+
+.widget_sensei_category_courses li,
+.widget_sensei_course_component li {
+  margin-bottom: 1.618em; }
+  .widget_sensei_category_courses li:after,
+  .widget_sensei_course_component li:after {
+    content: "";
+    display: table;
+    clear: both; }
+.widget_sensei_category_courses img,
+.widget_sensei_course_component img {
+  width: 4.236em;
+  height: auto;
+  float: right; }
+
+.widget_sensei_lesson_component li {
+  margin-bottom: 1.618em; }
+
+.course-container p.sensei-message,
+.course-container div.sensei-message,
+.course p.sensei-message,
+.course div.sensei-message,
+.lesson p.sensei-message,
+.lesson div.sensei-message,
+.quiz p.sensei-message,
+.quiz div.sensei-message,
+.learner-info p.sensei-message,
+.learner-info div.sensei-message {
+  clear: both;
+  padding: 1em 1.618em 1em 5em;
+  border-top: 0.202em solid #eeeeee;
+  background: #f0f0f0;
+  margin-bottom: 2.618em;
+  font-weight: normal;
+  position: relative;
+  color: #666; }
+  .course-container p.sensei-message:before,
+  .course-container div.sensei-message:before,
+  .course p.sensei-message:before,
+  .course div.sensei-message:before,
+  .lesson p.sensei-message:before,
+  .lesson div.sensei-message:before,
+  .quiz p.sensei-message:before,
+  .quiz div.sensei-message:before,
+  .learner-info p.sensei-message:before,
+  .learner-info div.sensei-message:before {
+    font-family: 'FontAwesome';
+    content: "\f00d";
+    color: #eeeeee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2.618em;
+    background: #ebebeb;
+    text-align: center;
+    padding: 1em .618em;
+    font-weight: normal !important; }
+  .course-container p.sensei-message.medium,
+  .course-container div.sensei-message.medium,
+  .course p.sensei-message.medium,
+  .course div.sensei-message.medium,
+  .lesson p.sensei-message.medium,
+  .lesson div.sensei-message.medium,
+  .quiz p.sensei-message.medium,
+  .quiz div.sensei-message.medium,
+  .learner-info p.sensei-message.medium,
+  .learner-info div.sensei-message.medium {
+    padding: 1.387em 1.387em 1.387em 3.631em;
+    font-size: 1.1em; }
+  .course-container p.sensei-message.large,
+  .course-container div.sensei-message.large,
+  .course p.sensei-message.large,
+  .course div.sensei-message.large,
+  .lesson p.sensei-message.large,
+  .lesson div.sensei-message.large,
+  .quiz p.sensei-message.large,
+  .quiz div.sensei-message.large,
+  .learner-info p.sensei-message.large,
+  .learner-info div.sensei-message.large {
+    padding: 1.387em 1.387em 1.387em 3.631em;
+    font-size: 1.2em; }
+  .course-container p.sensei-message.rounded,
+  .course-container div.sensei-message.rounded,
+  .course p.sensei-message.rounded,
+  .course div.sensei-message.rounded,
+  .lesson p.sensei-message.rounded,
+  .lesson div.sensei-message.rounded,
+  .quiz p.sensei-message.rounded,
+  .quiz div.sensei-message.rounded,
+  .learner-info p.sensei-message.rounded,
+  .learner-info div.sensei-message.rounded {
+    border-top-left-radius: 0.202em;
+    border-top-right-radius: 0.202em;
+    border-bottom-left-radius: 0.202em;
+    border-bottom-right-radius: 0.202em; }
+  .course-container p.sensei-message a,
+  .course-container div.sensei-message a,
+  .course p.sensei-message a,
+  .course div.sensei-message a,
+  .lesson p.sensei-message a,
+  .lesson div.sensei-message a,
+  .quiz p.sensei-message a,
+  .quiz div.sensei-message a,
+  .learner-info p.sensei-message a,
+  .learner-info div.sensei-message a {
+    text-decoration: underline;
+    background: none;
+    padding: 0; }
+    .course-container p.sensei-message a:hover,
+    .course-container div.sensei-message a:hover,
+    .course p.sensei-message a:hover,
+    .course div.sensei-message a:hover,
+    .lesson p.sensei-message a:hover,
+    .lesson div.sensei-message a:hover,
+    .quiz p.sensei-message a:hover,
+    .quiz div.sensei-message a:hover,
+    .learner-info p.sensei-message a:hover,
+    .learner-info div.sensei-message a:hover {
+      text-decoration: none; }
+  .course-container p.sensei-message.alert,
+  .course-container div.sensei-message.alert,
+  .course p.sensei-message.alert,
+  .course div.sensei-message.alert,
+  .lesson p.sensei-message.alert,
+  .lesson div.sensei-message.alert,
+  .quiz p.sensei-message.alert,
+  .quiz div.sensei-message.alert,
+  .learner-info p.sensei-message.alert,
+  .learner-info div.sensei-message.alert {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #ffd9c8;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .course-container p.sensei-message.alert:before,
+    .course-container div.sensei-message.alert:before,
+    .course p.sensei-message.alert:before,
+    .course div.sensei-message.alert:before,
+    .lesson p.sensei-message.alert:before,
+    .lesson div.sensei-message.alert:before,
+    .quiz p.sensei-message.alert:before,
+    .quiz div.sensei-message.alert:before,
+    .learner-info p.sensei-message.alert:before,
+    .learner-info div.sensei-message.alert:before {
+      font-family: 'FontAwesome';
+      content: "\f071";
+      color: #ffd9c8;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+    .course-container p.sensei-message.alert a,
+    .course-container div.sensei-message.alert a,
+    .course p.sensei-message.alert a,
+    .course div.sensei-message.alert a,
+    .lesson p.sensei-message.alert a,
+    .lesson div.sensei-message.alert a,
+    .quiz p.sensei-message.alert a,
+    .quiz div.sensei-message.alert a,
+    .learner-info p.sensei-message.alert a,
+    .learner-info div.sensei-message.alert a {
+      color: #ffb695; }
+      .course-container p.sensei-message.alert a:hover,
+      .course-container div.sensei-message.alert a:hover,
+      .course p.sensei-message.alert a:hover,
+      .course div.sensei-message.alert a:hover,
+      .lesson p.sensei-message.alert a:hover,
+      .lesson div.sensei-message.alert a:hover,
+      .quiz p.sensei-message.alert a:hover,
+      .quiz div.sensei-message.alert a:hover,
+      .learner-info p.sensei-message.alert a:hover,
+      .learner-info div.sensei-message.alert a:hover {
+        color: #ffa47b; }
+  .course-container p.sensei-message.download, .course-container p.sensei-message.tick,
+  .course-container div.sensei-message.download,
+  .course-container div.sensei-message.tick,
+  .course p.sensei-message.download,
+  .course p.sensei-message.tick,
+  .course div.sensei-message.download,
+  .course div.sensei-message.tick,
+  .lesson p.sensei-message.download,
+  .lesson p.sensei-message.tick,
+  .lesson div.sensei-message.download,
+  .lesson div.sensei-message.tick,
+  .quiz p.sensei-message.download,
+  .quiz p.sensei-message.tick,
+  .quiz div.sensei-message.download,
+  .quiz div.sensei-message.tick,
+  .learner-info p.sensei-message.download,
+  .learner-info p.sensei-message.tick,
+  .learner-info div.sensei-message.download,
+  .learner-info div.sensei-message.tick {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #89b93f;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .course-container p.sensei-message.download:before, .course-container p.sensei-message.tick:before,
+    .course-container div.sensei-message.download:before,
+    .course-container div.sensei-message.tick:before,
+    .course p.sensei-message.download:before,
+    .course p.sensei-message.tick:before,
+    .course div.sensei-message.download:before,
+    .course div.sensei-message.tick:before,
+    .lesson p.sensei-message.download:before,
+    .lesson p.sensei-message.tick:before,
+    .lesson div.sensei-message.download:before,
+    .lesson div.sensei-message.tick:before,
+    .quiz p.sensei-message.download:before,
+    .quiz p.sensei-message.tick:before,
+    .quiz div.sensei-message.download:before,
+    .quiz div.sensei-message.tick:before,
+    .learner-info p.sensei-message.download:before,
+    .learner-info p.sensei-message.tick:before,
+    .learner-info div.sensei-message.download:before,
+    .learner-info div.sensei-message.tick:before {
+      font-family: 'FontAwesome';
+      content: "\f019";
+      color: #89b93f;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+    .course-container p.sensei-message.download a, .course-container p.sensei-message.tick a,
+    .course-container div.sensei-message.download a,
+    .course-container div.sensei-message.tick a,
+    .course p.sensei-message.download a,
+    .course p.sensei-message.tick a,
+    .course div.sensei-message.download a,
+    .course div.sensei-message.tick a,
+    .lesson p.sensei-message.download a,
+    .lesson p.sensei-message.tick a,
+    .lesson div.sensei-message.download a,
+    .lesson div.sensei-message.tick a,
+    .quiz p.sensei-message.download a,
+    .quiz p.sensei-message.tick a,
+    .quiz div.sensei-message.download a,
+    .quiz div.sensei-message.tick a,
+    .learner-info p.sensei-message.download a,
+    .learner-info p.sensei-message.tick a,
+    .learner-info div.sensei-message.download a,
+    .learner-info div.sensei-message.tick a {
+      color: #6d9332; }
+      .course-container p.sensei-message.download a:hover, .course-container p.sensei-message.tick a:hover,
+      .course-container div.sensei-message.download a:hover,
+      .course-container div.sensei-message.tick a:hover,
+      .course p.sensei-message.download a:hover,
+      .course p.sensei-message.tick a:hover,
+      .course div.sensei-message.download a:hover,
+      .course div.sensei-message.tick a:hover,
+      .lesson p.sensei-message.download a:hover,
+      .lesson p.sensei-message.tick a:hover,
+      .lesson div.sensei-message.download a:hover,
+      .lesson div.sensei-message.tick a:hover,
+      .quiz p.sensei-message.download a:hover,
+      .quiz p.sensei-message.tick a:hover,
+      .quiz div.sensei-message.download a:hover,
+      .quiz div.sensei-message.tick a:hover,
+      .learner-info p.sensei-message.download a:hover,
+      .learner-info p.sensei-message.tick a:hover,
+      .learner-info div.sensei-message.download a:hover,
+      .learner-info div.sensei-message.tick a:hover {
+        color: #5f802c; }
+  .course-container p.sensei-message.tick:before,
+  .course-container div.sensei-message.tick:before,
+  .course p.sensei-message.tick:before,
+  .course div.sensei-message.tick:before,
+  .lesson p.sensei-message.tick:before,
+  .lesson div.sensei-message.tick:before,
+  .quiz p.sensei-message.tick:before,
+  .quiz div.sensei-message.tick:before,
+  .learner-info p.sensei-message.tick:before,
+  .learner-info div.sensei-message.tick:before {
+    content: "\f00c"; }
+  .course-container p.sensei-message.info,
+  .course-container div.sensei-message.info,
+  .course p.sensei-message.info,
+  .course div.sensei-message.info,
+  .lesson p.sensei-message.info,
+  .lesson div.sensei-message.info,
+  .quiz p.sensei-message.info,
+  .quiz div.sensei-message.info,
+  .learner-info p.sensei-message.info,
+  .learner-info div.sensei-message.info {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #555555;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .course-container p.sensei-message.info:before,
+    .course-container div.sensei-message.info:before,
+    .course p.sensei-message.info:before,
+    .course div.sensei-message.info:before,
+    .lesson p.sensei-message.info:before,
+    .lesson div.sensei-message.info:before,
+    .quiz p.sensei-message.info:before,
+    .quiz div.sensei-message.info:before,
+    .learner-info p.sensei-message.info:before,
+    .learner-info div.sensei-message.info:before {
+      font-family: 'FontAwesome';
+      content: "\f05a";
+      color: #555555;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+    .course-container p.sensei-message.info a,
+    .course-container div.sensei-message.info a,
+    .course p.sensei-message.info a,
+    .course div.sensei-message.info a,
+    .lesson p.sensei-message.info a,
+    .lesson div.sensei-message.info a,
+    .quiz p.sensei-message.info a,
+    .quiz div.sensei-message.info a,
+    .learner-info p.sensei-message.info a,
+    .learner-info div.sensei-message.info a {
+      color: #3b3b3b; }
+      .course-container p.sensei-message.info a:hover,
+      .course-container div.sensei-message.info a:hover,
+      .course p.sensei-message.info a:hover,
+      .course div.sensei-message.info a:hover,
+      .lesson p.sensei-message.info a:hover,
+      .lesson div.sensei-message.info a:hover,
+      .quiz p.sensei-message.info a:hover,
+      .quiz div.sensei-message.info a:hover,
+      .learner-info p.sensei-message.info a:hover,
+      .learner-info div.sensei-message.info a:hover {
+        color: #2f2f2f; }
+  .course-container p.sensei-message.note,
+  .course-container div.sensei-message.note,
+  .course p.sensei-message.note,
+  .course div.sensei-message.note,
+  .lesson p.sensei-message.note,
+  .lesson div.sensei-message.note,
+  .quiz p.sensei-message.note,
+  .quiz div.sensei-message.note,
+  .learner-info p.sensei-message.note,
+  .learner-info div.sensei-message.note {
+    padding: 1em 1.618em 1em 5em;
+    border-top: 0.202em solid #eeeeee;
+    background: #f0f0f0;
+    margin-bottom: 2.618em;
+    font-weight: normal;
+    position: relative;
+    color: #666; }
+    .course-container p.sensei-message.note:before,
+    .course-container div.sensei-message.note:before,
+    .course p.sensei-message.note:before,
+    .course div.sensei-message.note:before,
+    .lesson p.sensei-message.note:before,
+    .lesson div.sensei-message.note:before,
+    .quiz p.sensei-message.note:before,
+    .quiz div.sensei-message.note:before,
+    .learner-info p.sensei-message.note:before,
+    .learner-info div.sensei-message.note:before {
+      font-family: 'FontAwesome';
+      content: "\f0f6";
+      color: #eeeeee;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 2.618em;
+      background: #ebebeb;
+      text-align: center;
+      padding: 1em .618em;
+      font-weight: normal !important; }
+  .course-container p.sensei-message.normal,
+  .course-container div.sensei-message.normal,
+  .course p.sensei-message.normal,
+  .course div.sensei-message.normal,
+  .lesson p.sensei-message.normal,
+  .lesson div.sensei-message.normal,
+  .quiz p.sensei-message.normal,
+  .quiz div.sensei-message.normal,
+  .learner-info p.sensei-message.normal,
+  .learner-info div.sensei-message.normal {
+    background: #f0f0f0;
+    padding: 1em 1.387em; }
+  .course-container p.sensei-message .view-quiz,
+  .course-container div.sensei-message .view-quiz,
+  .course p.sensei-message .view-quiz,
+  .course div.sensei-message .view-quiz,
+  .lesson p.sensei-message .view-quiz,
+  .lesson div.sensei-message .view-quiz,
+  .quiz p.sensei-message .view-quiz,
+  .quiz div.sensei-message .view-quiz,
+  .learner-info p.sensei-message .view-quiz,
+  .learner-info div.sensei-message .view-quiz {
+    float: right; }
+
+#post-entries a {
+  color: #888;
+  font-size: .9em; }
+#post-entries .nav-prev a:before {
+  content: "\f104";
+  width: 1em; }
+#post-entries .nav-next a:after {
+  content: "\f105";
+  width: 1em; }

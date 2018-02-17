@@ -1,0 +1,26 @@
+/* 2.7 Full Width */
+body.full-width,
+body.full-width #inner-wrapper {padding: 0;}
+body.full-width #wrapper {padding:0;min-width: 100% !important;width:100%}
+body.full-width #header,
+#nav-container,
+body.full-width #content,
+body.full-width #footer-widgets,
+body.full-width #footer { padding-left: 1.618em; padding-right: 1.618em; }
+body.full-width #top { padding: 0; margin: 0; }
+body.full-width .nav-toggle { margin: 0; }
+#nav-container {
+  border: 1px solid #d9d9d9;
+  border-width: 1px;
+  background: #f0f0f0;
+  margin: 0;
+  @include clearfix;
+}
+#nav-container #navigation { margin-bottom: 0; border: none; border-radius: 0; }
+#nav-container #navigation ul#main-nav > li:first-child { border-left: 1px solid #DBDBDB; }
+
+@media only screen and ( min-width: $tablet ) {
+	#nav-container {
+		margin: 0 0 3em 0;
+	}
+}

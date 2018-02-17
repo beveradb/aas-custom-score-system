@@ -1,0 +1,94 @@
+/**
+ * Our Team
+ *
+ * Styles which integrate this with with Our Team.
+ * This stylesheet is only enqueued if Our Team is activated.
+ * http://wordpress.org/plugins/our-team-by-woothemes/
+ */
+
+@import '../../../../css/modules/all';
+
+.widget_woothemes_our_team {
+	.team-member {
+		margin-bottom: 1.618em;
+
+		.avatar {
+			@include box-sizing( border-box );
+			display: block;
+			margin-bottom: 1em;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.author-details {
+		list-style: none;
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+
+		li {
+			list-style: none !important;
+			border-top: 1px solid rgba(0,0,0,0.1);
+			padding: 1em 0;
+		}
+	}
+
+	.role {
+		font-weight: 700;
+	}
+}
+
+// Layout
+@media only screen and ( min-width: $desktop ) {
+	.widget_woothemes_our_team {
+		.columns-2,
+		.columns-3,
+		.columns-4,
+		.columns-5,
+		.columns-6 {
+			@include clearfix;
+
+			.team-member {
+				float: left;
+				margin-right: 3.8%;
+
+				&.first {
+					clear: both;
+				}
+				&.last {
+					margin-right: 0;
+				}
+			}
+		}
+
+		.columns-2 {
+			.team-member {
+				width: 48%;
+			}
+		}
+
+		.columns-3 {
+			.team-member {
+				width: 30.75%;
+			}
+		}
+
+		.columns-4 {
+			.team-member {
+				width: 22.05%;
+			}
+		}
+
+		.columns-5 {
+			.team-member {
+				width: 16.9%;
+			}
+		}
+
+		.columns-6 {
+			.team-member {
+				width: 13.5%;
+			}
+		}
+	}
+}

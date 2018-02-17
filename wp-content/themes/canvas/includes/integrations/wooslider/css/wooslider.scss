@@ -1,0 +1,177 @@
+/**
+ * WooSlider
+ *
+ * Styles which integrate this theme with WooSlider.
+ * This stylesheet is only enqueued if WooSlider is activated.
+ * http: //www.woothemes.com/products/wooslider/
+ */
+
+@import '../../../../css/modules/all';
+
+// Browser resets
+.wooslider-container a:active,
+.wooslider a:active,
+.wooslider-container a:focus,
+.wooslider a:focus  {
+	outline: none;
+}
+
+.slides,
+.wooslider-control-nav,
+.wooslider-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wooslider {
+	margin: 0;
+	padding: 0;
+	@include box_shadow_reset();
+	border-radius: 0;
+	background: none;
+	border: 0;
+}
+
+body {
+	.wooslider {
+		.slide-content {
+			margin: 0;
+		}
+	}
+}
+
+// Theme
+.wooslider {
+	margin: 0 0 1.618em;
+	position: relative;
+	zoom: 1;
+
+	ul.slides {
+		zoom: 1;
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			position: relative;
+		}
+		img {
+			padding: 0;
+		}
+	}
+
+	.wooslider-direction-nav {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li {
+			list-style: none;
+		}
+		a {
+			position: absolute;
+			display: block;
+			width: 1em;
+			height: 1em;
+			margin-top: -.5em;
+			font-size: 2em;
+			top: 50%;
+			z-index: 10;
+			cursor: pointer;
+			text-align: center;
+			@include opacity( 0 );
+			@include transition();
+			-webkit-transform: translateZ(0);
+			line-height: 1;
+			text-indent: -9999px;
+			color: rgba(0, 0, 0, 0.5);
+			text-shadow: none;
+			border: 2px solid;
+			border-radius: 100%;
+			&:before  {
+				@include icon;
+				margin: 0;
+				font-size: 1em;
+			}
+
+			&:hover {
+				color: $color_links;
+				text-decoration: none;
+			}
+		}
+
+		.wooslider-next {
+			right: .53em;
+			&:before  {
+				content: "\f105";
+			}
+		}
+
+		.wooslider-prev {
+			left: .53em;
+			&:before  {
+				content: "\f104";
+			}
+		}
+
+		&.wooslider-disabled {
+			@include opacity( .3 );
+			cursor: default;
+		}
+	}
+
+	&:hover  {
+		.wooslider-direction-nav  {
+			a  {
+				@include opacity( 1 );
+			}
+		}
+	}
+
+	.wooslider-control-nav {
+		width: 100%;
+		position: absolute;
+		bottom: -2.618em;
+		text-align: center;
+		z-index: 9;
+		margin: 0;
+		padding: 0;
+		@include opacity( .5 );
+		@include transition();
+		&:hover {
+			@include opacity( 1 );
+		}
+		li {
+			margin: 0 .202em;
+			display: inline-block;
+			list-style: none;
+			a {
+				width: 6px;
+				height: 6px;
+				display: block;
+				border: 2px solid #222;
+				cursor: pointer;
+				text-indent: -9999px;
+				background: none;
+				border-radius: 100%;
+				&:hover {
+					background: #555;
+					border-color: #555;
+				}
+				&.wooslider-active {
+					border-color: #222;
+					background: #222;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	.slide-title {
+		margin: 0 0 10px;
+	}
+
+	.slide-content {
+		position: relative;
+	}
+
+}

@@ -1,0 +1,590 @@
+/**
+ * Sensei
+ *
+ * Styles which integrate this theme with Sensei.
+ * This stylesheet is only enqueued if Sensei is activated.
+ * http://www.woothemes.com/products/sensei/
+ */
+
+@import '../../../../css/modules/all';
+
+// General Sensei elements
+.meter {
+	clear: both;
+	height: 1.618em;
+	background: $bg_light;
+	margin-bottom: 1.618em;
+	position: relative;
+
+	span {
+		display: inline-block;
+		background: $color_links;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		color: #fff;
+		font-weight: 700;
+		min-width: 2.618em;
+		@include box-sizing(border-box);
+		padding-right: .618em;
+		text-align: right;
+	}
+}
+
+.status {
+	display: inline-block;
+	padding: .236em .857em;
+	background: $border_main;
+	font-weight: 700;
+
+	&.in-progress {
+		&:before {
+			@include iconbefore("\f10c");
+		}
+	}
+
+	&.completed {
+		background: $success;
+		color: #fff;
+
+		&:before {
+			@include iconbefore("\f05d");
+		}
+	}
+
+	&.register {
+		color: #fff;
+		background: $color_links;
+
+		&:before {
+			@include iconbefore("\f007");
+		}
+	}
+}
+
+a.view-results,
+a.view-results-link,
+a.sensei-certificate-link {
+	display: inline-block;
+	padding: .236em .857em;
+	background: $border_main;
+	float: right;
+	margin-left: .236em;
+
+	&:after {
+		@include iconafter("\f18e");
+		text-decoration: none;
+	}
+}
+
+.lesson-status {
+	&.in-progress {
+		&:before {
+			@include iconbefore("\f10c");
+		}
+	}
+
+	&.completed,
+	&.complete {
+		color: $success;
+
+		&:before {
+			@include iconbefore("\f05d");
+		}
+	}
+
+	&.register {
+		&:before {
+			@include iconbefore("\f007");
+		}
+	}
+}
+
+.lesson-course:before {
+	@include iconbefore("\f112");
+}
+
+.course-price {
+	font-weight: 700;
+
+	del {
+		@include opacity(.5);
+		font-weight: normal;
+		margin-right: .236em;
+	}
+
+	ins {
+		text-decoration: none;
+		background: none;
+	}
+}
+
+.answer_message {
+	@include message("\f129", $info);
+	margin: 1em 0 !important; // redeclaring .message() overrides this so we use !important
+
+	&.user_right,
+	&.user_wrong {
+		color: $color_body;
+	}
+
+	&.user_right {
+		@include message("\f05d", $success);
+	}
+
+	&.user_wrong {
+		@include message("\f05c", $error);
+	}
+
+	&.has_notes {
+		span {
+			border-bottom: 1px dotted;
+			cursor: help;
+		}
+
+		.notes {
+			position: absolute;
+			z-index: 999;
+			background: #fff;
+			border: 1px solid $border_main;
+			padding: 1em 1.618em 0;
+			font-weight: normal;
+		}
+	}
+}
+
+.user_right {
+	color: $success;
+}
+
+.user_wrong {
+	color: $error;
+}
+
+.course {
+	.woo-sc-box {
+		clear:both;
+	}
+}
+
+// Courses
+#main {
+	.course,
+	.course-container {
+		.entry-actions {
+			span {
+				margin: 0 1em 0 0;
+			}
+		}
+	}
+}
+
+.course-container {
+	.course {
+		@include clearfix;
+		clear: both;
+		margin: 0 0 20px;
+
+		h2 {
+			margin: 0 0 0.3em;
+			a {
+				&:link,
+				&:visited {
+					color: #222;
+				}
+			}
+		}
+	}
+}
+
+.tax-course-category {
+	.course-container {
+		.type-course {
+			clear: both;
+			.entry {
+				clear: none;
+			}
+		}
+	}
+}
+
+.sensei-course-meta {
+	> span {
+		color: lighten( $color_body, 20% );
+		font-size: 12px;
+		margin-right: .5em;
+		padding-right: .5em;
+		border-right: 1px solid $border_main;
+
+		&:last-child {
+			border: 0;
+			margin-right: 0;
+			padding-right: 0;
+		}
+
+		&.lesson-course {
+			&:before {
+				@include iconbefore("\f148");
+				width: auto;
+				margin-right: .236em;
+				@include transform(rotate(90deg));
+			}
+		}
+	}
+
+	a {
+		&:link,
+		&:visited {
+			color: lighten( $color_body, 20% );
+			font-weight: bold;
+		}
+	}
+}
+
+// Single Course
+.single-course {
+	header {
+		h1 {
+			margin: 0 0 .5em;
+		}
+	}
+
+	.course-meta {
+		margin-bottom: 1.618em;
+		@include clearfix;
+
+		.status {
+			float: left;
+			margin-right: .236em;
+		}
+
+		.view-results {
+			float: right;
+		}
+	}
+	.course-video {
+		margin-bottom: 1.618em;
+	}
+}
+
+.course {
+	.total-grade {
+		border-top: 2px solid $border_main;
+		padding-top: 1em;
+		margin-top: 1em;
+	}
+
+	.lesson-grade {
+		float: right;
+	}
+}
+
+// Lessons
+.course-lessons,
+.module-lessons {
+	.course-completion-rate {
+		float: right;
+		color: lighten( $color_body, 20% );
+		font-style: italic;
+		margin: 0 0 .5em;
+	}
+
+	.lesson, .module {
+		@include clearfix;
+		margin: 0 0 20px;
+
+		header {
+			h2 {
+				margin: 0 0 0.3em;
+
+				a {
+					&:link,
+					&:visited {
+						color: #222;
+					}
+				}
+			}
+		}
+
+		.lesson-meta {
+			margin: 0 0 1.8em;
+			> span {
+				font-size: 12px;
+				color: lighten( $color_body, 20% );
+				margin-right: .5em;
+				padding-right: .5em;
+				border-right: 1px solid $border_main;
+
+				&:last-child {
+					border: 0;
+					margin-right: 0;
+					padding-right: 0;
+				}
+			}
+
+			a {
+				&:link,
+				&:visited {
+					color: lighten( $color_body, 20% );
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+
+
+// Single Lesson
+.single-lesson {
+	header {
+		h1 {
+			margin: 0 0 .5em;
+		}
+	}
+
+	.video {
+		margin: 0 0 1.618em;
+	}
+}
+
+// Lesson Complete
+#lesson_complete {
+	p {
+		margin: 0 0 1.2em;
+	}
+
+	.reset {
+		background: #FF4800;
+	}
+}
+
+// Modules
+.module {
+	.module-lessons {
+		ul {
+			list-style: none;
+		}
+	}
+}
+
+// Single Quiz
+.single-quiz {
+	.multiple-choice {
+		> span {
+			font-weight: 700;
+		}
+
+		ul {
+			margin-left: 0;
+
+			li {
+				list-style: none;
+			}
+		}
+	}
+}
+
+#sensei-quiz-list {
+	list-style: none;
+
+	> li {
+		margin-bottom: 2.618em;
+		padding: 1.618em;
+		border: 1px solid $border_main;
+
+		ul {
+			list-style: none;
+			margin: 0;
+		}
+
+		.user_right,
+		.right_answer,
+		.user_wrong {
+			font-weight: 700;
+		}
+	}
+}
+
+// Learner Profile
+.learner-info {
+	.avatar {
+		float: right;
+		margin: 0 0 1.618em 1em;
+	}
+
+	& + h2 {
+		clear: both;
+	}
+}
+
+// My Courses
+#my-courses {
+	.ui-tabs-nav {
+		padding-left: 0;
+
+		li {
+			list-style: none;
+			display: inline-block;
+			margin-right: 1em;
+
+			&.ui-state-active {
+				font-weight: bold;
+				a {
+					color: $color_links;
+				}
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			a {
+				color: lighten( $color_body, 20% );
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Widgets
+.widget_sensei_category_courses,
+.widget_sensei_course_component {
+	li {
+		@include clearfix;
+		margin-bottom: 1.618em;
+	}
+
+	img {
+		width: 4.236em;
+		height: auto;
+		float: right;
+	}
+}
+
+.widget_sensei_lesson_component {
+	li {
+		margin-bottom: 1.618em;
+	}
+}
+
+//Messages
+.course-container,
+.course,
+.lesson,
+.quiz,
+.learner-info {
+	p.sensei-message,
+	div.sensei-message {
+		clear: both;
+		@include message();
+
+		&.medium {
+			padding: 1.387em 1.387em 1.387em 3.631em;
+			font-size: 1.1em;
+		}
+
+		&.large {
+			padding: 1.387em 1.387em 1.387em 3.631em;
+			font-size: 1.2em;
+		}
+
+		&.rounded {
+			@include border-top-radius(.202em);
+			@include border-bottom-radius(.202em);
+		}
+
+		a {
+			text-decoration: underline;
+			background: none;
+			padding: 0;
+
+			&:hover  {
+				text-decoration: none;
+			}
+		}
+
+		&.alert {
+			@include message("\f071", $error);
+
+			a {
+				color: darken($error, 10%);
+
+				&:hover  {
+					color: darken($error, 15%);
+				}
+			}
+		}
+
+		&.download,
+		&.tick {
+			@include message("\f019", $success);
+
+			a {
+				color: darken($success, 10%);
+
+				&:hover  {
+					color: darken($success, 15%);
+				}
+			}
+		}
+
+		&.tick {
+			&:before {
+				content: "\f00c";
+			}
+		}
+
+		&.info {
+			@include message("\f05a", #555);
+
+			a {
+				color: darken($color_body, 10%);
+
+				&:hover {
+					color: darken($color_body, 15%);
+				}
+			}
+		}
+
+		&.note {
+			@include message("\f0f6", $info);
+		}
+
+		&.normal {
+			background: $bg_light;
+			padding: 1em 1.387em;
+		}
+
+		.view-quiz {
+			float: right;
+		}
+	}
+}
+
+// Post Navigation
+#post-entries {
+	a {
+		color: #888;
+		font-size: .9em;
+	}
+
+	.nav-prev {
+		a {
+			&:before {
+				@include iconbefore( "\f104" );
+				width: 1em;
+			}
+		}
+	}
+
+	.nav-next {
+		a {
+			&:after {
+				@include iconafter( "\f105" );
+				width: 1em;
+			}
+		}
+	}
+}

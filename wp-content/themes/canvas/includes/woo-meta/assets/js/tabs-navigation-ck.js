@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){jQuery(".content-section:not(:eq(0))").hide();jQuery(".subsubsub a.tab").click(function(e){jQuery(this).parents(".subsubsub").find(".current").removeClass("current");jQuery(this).addClass("current");var t=jQuery(this).attr("href");t=t.replace("#","");jQuery(".content-section:not(#"+t+")").hide();jQuery(".content-section#"+t).show();return!1})});

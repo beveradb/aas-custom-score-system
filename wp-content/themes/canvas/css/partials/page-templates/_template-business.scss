@@ -1,0 +1,27 @@
+/* 8.2 Business template */
+#loopedSlider.business-slider, #loopedSlider.business-slider .container { width: 100%; }
+.business h2, .business h3, .business h4, .business h5, .business h6 { margin-top:0.3em; }
+#loopedSlider.business-slider img.woo-image { max-width: 100%; height: auto; }
+#loopedSlider.business-slider li.slide { display: none; } /* Prevents flicker of the slides before the slider has loaded. */
+.full-slider .slide .woo-image { width: 100%; }
+.full-slider #loopedSlider.business-slider .entry { padding:1.5em 0 0.5em; }
+
+@media only screen and ( min-width: $tablet ) {
+
+	body.full-header.full-slider #loopedSlider { margin-top: -3em; }
+
+	#loopedSlider.business-slider .content {
+	  background:rgb(0,0,0);
+	  background:rgba(0,0,0,.5);
+	  top: inherit;
+	  bottom: 0;
+	  left: 0;
+	  margin: 0 auto;
+	  position: absolute;
+	  right: 0;
+	  width: 100%;
+	}
+	.full-slider #loopedSlider.business-slider .content { text-align: center; }
+	.full-slider #loopedSlider.business-slider .content p, .full-slider #loopedSlider.business-slider .content h2{ float: none; max-width: 100%; background: none; }
+
+}

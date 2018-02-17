@@ -1,0 +1,110 @@
+/**
+ * WooSlider Magazine Theme
+ *
+ * Style for the WooSlider Magazine theme.
+ * This stylesheet is only enqueued if the Magazine theme is being used.
+ */
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-fw {
+  width: 1.28571em;
+  text-align: center; }
+
+.wooslider-slider-magazine {
+  margin: 0 0 40px; }
+
+.wooslider-theme-magazine .slide-title {
+  color: #222222; }
+  .wooslider-theme-magazine .slide-title a {
+    color: #222222; }
+.wooslider-theme-magazine .has-featured-image .slide-content,
+.wooslider-theme-magazine .has-featured-image .slide-excerpt {
+  background: #000;
+  padding: 20px; }
+.wooslider-theme-magazine .has-featured-image .slide-title {
+  color: #fff;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7); }
+  .wooslider-theme-magazine .has-featured-image .slide-title:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .wooslider-theme-magazine .has-featured-image .slide-title a {
+    color: #fff; }
+
+@media only screen and (min-width: 980px) {
+  .wooslider-theme-magazine .has-featured-image .slide-content,
+  .wooslider-theme-magazine .has-featured-image .slide-excerpt {
+    background: none;
+    padding: 40px 0;
+    position: absolute;
+    color: #ccc;
+    z-index: 9; }
+    .wooslider-theme-magazine .has-featured-image .slide-content p,
+    .wooslider-theme-magazine .has-featured-image .slide-excerpt p {
+      background: rgba(0, 0, 0, 0.7);
+      clear: both;
+      color: #ccc;
+      padding: 5px 20px 10px 20px; }
+  .wooslider-theme-magazine .has-featured-image .slide-title {
+    padding: 10px 20px; }
+  .wooslider-theme-magazine .slide-content {
+    position: relative; }
+  .wooslider-theme-magazine .layout-text-bottom.has-featured-image {
+    text-align: center; }
+    .wooslider-theme-magazine .layout-text-bottom.has-featured-image .slide-content,
+    .wooslider-theme-magazine .layout-text-bottom.has-featured-image .slide-excerpt {
+      left: 0;
+      bottom: 0;
+      right: 0; }
+  .wooslider-theme-magazine .layout-text-top.has-featured-image {
+    text-align: center; }
+    .wooslider-theme-magazine .layout-text-top.has-featured-image .slide-content,
+    .wooslider-theme-magazine .layout-text-top.has-featured-image .slide-excerpt {
+      left: 0;
+      top: 0;
+      right: 0; }
+  .wooslider-theme-magazine .layout-text-left img,
+  .wooslider-theme-magazine .layout-text-right img {
+    float: none;
+    width: 100%; }
+  .wooslider-theme-magazine .layout-text-left .slide-excerpt,
+  .wooslider-theme-magazine .layout-text-right .slide-excerpt {
+    float: none;
+    width: auto; }
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-content,
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-excerpt,
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-content,
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-excerpt {
+    width: 350px; }
+  .wooslider-theme-magazine .layout-text-left:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-content,
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-excerpt {
+    top: 0;
+    left: 0; }
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-media {
+    float: right; }
+  .wooslider-theme-magazine .layout-text-left.has-featured-image .slide-title {
+    float: left; }
+  .wooslider-theme-magazine .layout-text-right:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-content,
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-excerpt {
+    top: 0;
+    right: 0; }
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-media {
+    float: left; }
+  .wooslider-theme-magazine .layout-text-right.has-featured-image .slide-title {
+    float: right; } }

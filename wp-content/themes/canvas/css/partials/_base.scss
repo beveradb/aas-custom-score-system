@@ -1,0 +1,137 @@
+body {
+	font: 300 13px/20px $helvetica;
+	color: #555;
+	background-color: #fff;
+	-webkit-font-smoothing: subpixel-antialiased;
+	word-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-family: $helvetica;
+	color: #222;
+	font-weight: bold;
+	line-height:1.2em;
+}
+
+h1 {
+	font-size: 2em
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: 0.8em;
+}
+
+p {
+	margin: 0;
+	font: 300 14px/22px $helvetica;
+}
+
+strong {
+	font-weight: bold;
+}
+
+hr {
+	background-color: #e6e6e6;
+	border: 0;
+	height: 1px;
+	margin-bottom: 20px;
+}
+
+input,
+textarea {
+	padding: 5px;
+	background: #fff;
+	border-color: #efefef;
+	border-width: 2px;
+	border-style: solid;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	font-size: 1em;
+	color: #666;
+	font-family: inherit;
+}
+
+.hide {
+	display: none;
+}
+
+img {
+	vertical-align: bottom;
+	max-width: 100%;
+}
+
+/* Bicubic resizing for non-native sized IMG: code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 {
+	img {
+		-ms-interpolation-mode: bicubic;
+	}
+}
+
+a {
+	&:link,
+	&:visited {
+		color: $color_links;
+		text-decoration: none;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		color: #FF4800;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	a {
+		&:link, &:visited {
+			text-decoration: none;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+@font-face {
+	font-family: 'Social';
+	font-weight: normal; font-style: normal;
+	src: url('includes/fonts/social.eot');
+	src: url('includes/fonts/social.eot?#iefix') format('embedded-opentype'), url('includes/fonts/social.woff') format('woff'), url('includes/fonts/social.ttf') format('truetype'), url('includes/fonts/social.svg#woo-social') format('svg');
+}
+
+embed,
+iframe,
+video {
+	max-width: 100%;
+}
+
+video {
+	height: auto;
+}
