@@ -11,42 +11,70 @@
  
  if(isset($_GET['debugtables'])) $tablePrefix = 'ssd_';
  else $tablePrefix = 'ss_';
- 
- if(isset($_POST['matchid'])) {
-	$matchID = esc_sql($_POST['matchid']);
-	$match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
-	$user = $wpdb->get_row("SELECT * FROM wp_users WHERE ID= '$match->user_id'");
-	
-	$homeTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->home_team_id}'");
-	$awayTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->away_team_id}'"); 
-	?>
-	This value is from match ID <?=$matchID?>: <?=$match->import_message?><br /><br />
-	<strong><?=$homeTeam->name?></strong> scored <strong><?=$match->home_team_points?></strong> (Legs <?=$match->home_team_total_leg1?>-<?=$match->home_team_total_leg2?>-<?=$match->home_team_total_leg3?>)<br />
-	<? if(!empty($awayTeam->name)) { ?>
-	<strong><?=$awayTeam->name?></strong> scored <strong><?=$match->away_team_points?></strong> (Legs <?=$match->away_team_total_leg1?>-<?=$match->away_team_total_leg2?>-<?=$match->away_team_total_leg3?>)<br /><br />	
-	<? } else { ?>
-	<strong>Away Team Unknown!</strong><br />
-	<em>Please contact us if you know who played against <?=$homeTeam->name?> in week <?=$match->week_number?>.</em><br /><br />
-	<? } ?>
-	<? if($match->import_message=="Success") { ?>
-	<em>This match data was imported from the old scores table, and linked up with the match reports with no errors.</em><br />
-	<? } elseif($match->import_message=="Direct") { ?>
-	<em>This match data was directly entered using the match card page on </em><?=$match->date?>  by <?=$user->user_login?><br />
-	<? } elseif (stripos($match->import_message,"NOMATCH")!==false) { ?>
-	<em>This match data came from the old scores table, but could not be linked up with the match reports so does not have an "away" team.</em><br />
-	<? } elseif (stripos($match->import_message,"HOMESCOREFROMREPORT")!==false) { ?>
-	<em>This match data was imported from the old scores table, but as the table did not have any points listed for <?=$homeTeam->name?>, the points from the report were used.</em><br />
-	<? } elseif (stripos($match->import_message,"AWAYSCOREFROMREPORT")!==false) { ?>
-	<em>This match data was imported from the old scores table, but as the table did not have any points listed for <?=$awayTeam->name?>, the points from the report were used.</em><br />
-	<? } elseif (stripos($match->import_message,"TABLESCORES")!==false) { ?>
-	<em>This match data was imported from the old scores table, but as the points in the report did not add up to 6, the points in the table were used. Please check, and get in touch with corrections!</em><br />
-	<? } elseif (stripos($match->import_message,"REPORTSCORES")!==false) { ?>
-	<em>This match data was imported from the old scores table, but as the points in the table did not add up to 6, the points in the report were used. Please check, and get in touch with corrections!</em><br />
-	<? } elseif (stripos($match->import_message,"TABLESCORESNONSENSE")!==false) { ?>
-	<em>This match data was imported from the old scores table, but as neither the table or report points added up to 6, the points in the table were used. Please check, and get in touch with corrections!</em><br />	
-	<? }
-	die();
- }
+
+if (isset($_POST['matchid'])) {
+    $matchID = esc_sql($_POST['matchid']);
+    $match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
+    $user = $wpdb->get_row("SELECT * FROM wp_users WHERE ID= '$match->user_id'");
+
+    $homeTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->home_team_id}'");
+    $awayTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->away_team_id}'");
+    ?>
+    This value is from match ID <?= $matchID ?>: <?= $match->import_message ?><br/><br/>
+    <strong><?= $homeTeam->name ?></strong> scored
+    <strong><?= $match->home_forfeit ? 0 : $match->home_team_points ?></strong>
+    (Legs <?= $match->home_team_total_leg1 ?>-<?= $match->home_team_total_leg2 ?>-<?= $match->home_team_total_leg3 ?>)
+    <br/>
+    <? if (!empty($awayTeam->name)) { ?>
+        <strong><?= $awayTeam->name ?></strong> scored
+        <strong><?= $match->away_forfeit ? 0 : $match->away_team_points ?></strong>
+        (Legs <?= $match->away_team_total_leg1 ?>-<?= $match->away_team_total_leg2 ?>-<?= $match->away_team_total_leg3 ?>)
+        <br/><br/>
+    <? } else { ?>
+        <strong>Away Team Unknown!</strong><br/>
+        <em>Please contact us if you know who played against <?= $homeTeam->name ?> in week <?= $match->week_number ?>
+            .</em><br/><br/>
+    <? } ?>
+
+    <strong>Forfeit:</strong>
+        <?php
+        if ($match->home_forfeit) {
+            echo $homeTeam->name;
+        } elseif ($match->away_forfeit) {
+            echo $awayTeam->name;
+        } else {
+            echo "None";
+        }
+        ?><br />
+    <br />
+
+    <? if ($match->import_message == "Success") { ?>
+        <em>This match data was imported from the old scores table, and linked up with the match reports with no
+            errors.</em><br/>
+    <? } elseif ($match->import_message == "Direct") { ?>
+        <em>This match data was directly entered using the match card page
+            on </em><?= $match->date ?>  by <?= $user->user_login ?><br/>
+    <? } elseif (stripos($match->import_message, "NOMATCH") !== false) { ?>
+        <em>This match data came from the old scores table, but could not be linked up with the match reports so does
+            not have an "away" team.</em><br/>
+    <? } elseif (stripos($match->import_message, "HOMESCOREFROMREPORT") !== false) { ?>
+        <em>This match data was imported from the old scores table, but as the table did not have any points listed
+            for <?= $homeTeam->name ?>, the points from the report were used.</em><br/>
+    <? } elseif (stripos($match->import_message, "AWAYSCOREFROMREPORT") !== false) { ?>
+        <em>This match data was imported from the old scores table, but as the table did not have any points listed
+            for <?= $awayTeam->name ?>, the points from the report were used.</em><br/>
+    <? } elseif (stripos($match->import_message, "TABLESCORES") !== false) { ?>
+        <em>This match data was imported from the old scores table, but as the points in the report did not add up to 6,
+            the points in the table were used. Please check, and get in touch with corrections!</em><br/>
+    <? } elseif (stripos($match->import_message, "REPORTSCORES") !== false) { ?>
+        <em>This match data was imported from the old scores table, but as the points in the table did not add up to 6,
+            the points in the report were used. Please check, and get in touch with corrections!</em><br/>
+    <? } elseif (stripos($match->import_message, "TABLESCORESNONSENSE") !== false) { ?>
+        <em>This match data was imported from the old scores table, but as neither the table or report points added up
+            to 6, the points in the table were used. Please check, and get in touch with corrections!</em><br/>
+    <? }
+    die();
+}
  
  global $woo_options;
  get_header();
@@ -123,13 +151,13 @@
 													$match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE week_number = '$i' AND home_team_id = '{$team->id}' AND `archived`='0'");
 													if(!empty($match)) {
 														$homeTeamID = $team->id;
-														$points = $match->home_team_points;
+														$points = $match->home_forfeit ? 0 : $match->home_team_points;
 														$matchFound = true;
 													} else {
 														$match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE week_number = '$i' AND away_team_id = '{$team->id}' AND `archived`='0'");
 														if(!empty($match)) {
 															$awayTeamID = $team->id;
-															$points = $match->away_team_points;
+															$points = $match->away_forfeit ? 0 : $match->away_team_points;
 															$matchFound = true;
 														}
 													}
@@ -137,7 +165,7 @@
 														$homeTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->home_team_id}'");
 														$awayTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->away_team_id}'");
 
-														?><td class='pointsValue matchTeamPointsHeading' data-matchID='<?=$match->id?>' title='content loading...'><?=$points?></td>
+														?><td class='pointsValue matchTeamPointsHeading' data-matchID='<?=$match->id?>' title="Loading..."><?=$points?></td>
 													<? } else { ?>
 														<td class="playerScore week-<?=$i?>"></td>
 													<? }
@@ -155,7 +183,7 @@
 											$playerPlayedCount = 0;
 											$playerTotalDolls = 0;
 										?>	<tr>
-												<th class="playerName" data-playerid='<?=$player->id?>' title='content loading...'><?=$player->name?></th>
+												<th class="playerName" data-playerid='<?=$player->id?>' title="Loading..."><?=$player->name?></th>
 												<? for($i=1; $i<=18; $i++) {
 													$matchQuery = "SELECT * FROM {$tablePrefix}matches WHERE week_number = '$i' AND (home_team_id = '{$team->id}' OR away_team_id = '{$team->id}')  AND `archived`='0'";
 													$match = $wpdb->get_row($matchQuery);
@@ -183,36 +211,40 @@
 								<? } ?>
 						
 						<?  } // end of allscores sections foreach loop ?>
-						
-						<script>
-						jQuery(document).ready(function($) { 
-							$('.matchTeamPointsHeading').tooltip({
-								content: "Please wait...",
-								open: function(event, ui) {
-									var _elem = ui.tooltip;
-									$.ajax({
-										url: document.URL,
-										method: 'post',
-										data: {
-											matchid: $(this).data('matchid')
-										},
-										success: function(data) {
-											_elem.find(".ui-tooltip-content").html(data);
-										}
-									});
-								}
-							});
 
 
-                            $('.playerName').tooltip({
-                                content: "Please wait...",
-                                open: function(event, ui) {
-                                    var _elem = ui.tooltip.find(".ui-tooltip-content").html( "Player ID: " + $(this).data('playerid') );
-                                }
-                            });
-						});
-						</script>
-							
+                            <script>
+                                jQuery(document).ready(function ($) {
+
+                                    jQuery.widget.bridge('uitooltip', jQuery.ui.tooltip);
+
+                                    jQuery('.matchTeamPointsHeading').uitooltip({
+                                        content: "Please wait...",
+                                        open: function (event, ui) {
+                                            var _elem = ui.tooltip;
+                                            $.ajax({
+                                                url: document.URL,
+                                                method: 'post',
+                                                data: {
+                                                    matchid: $(this).data('matchid')
+                                                },
+                                                success: function (data) {
+                                                    _elem.find(".ui-tooltip-content").html(data);
+                                                }
+                                            });
+                                        }
+                                    });
+
+
+                                    jQuery('.playerName').uitooltip({
+                                        content: "Please wait...",
+                                        open: function (event, ui) {
+                                            var _elem = ui.tooltip.find(".ui-tooltip-content").html("Player ID: " + $(this).data('playerid'));
+                                        }
+                                    });
+                                });
+                            </script>
+
 					<?  } // end of else block checking for get parameters ?>
 						
                     </section><!-- /.entry -->

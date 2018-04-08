@@ -11,6 +11,12 @@ License: GPLv3
 
 global $wpdb;
 
+if (isset($_GET['debugtables'])) {
+    $tablePrefix = 'ssd_';
+} else {
+    $tablePrefix = 'ss_';
+}
+
 if( isset( $_POST['weekNumber'] ) )
 {
     echo $wpdb->replace(
@@ -25,6 +31,85 @@ if( isset( $_POST['weekNumber'] ) )
         )
     );
     
+    die();
+}
+
+
+if(isset($_POST['forfeitMatchID'])) {
+    $matchID = esc_sql($_POST['forfeitMatchID']);
+    $match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
+
+    $homeTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->home_team_id}'");
+    $awayTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->away_team_id}'");
+
+    if (isset($_POST['forfeitAction'])) {
+        switch ($_POST['forfeitAction']) {
+            case "setForfeitForHome":
+                $wpdb->update(
+                    'ss_matches',
+                    array(
+                        'home_forfeit' => 1
+                    ),
+                    array( 'ID' => $matchID )
+                );
+
+                break;
+            case "setForfeitForAway":
+                $wpdb->update(
+                    'ss_matches',
+                    array(
+                        'away_forfeit' => 1
+                    ),
+                    array( 'ID' => $matchID )
+                );
+                break;
+            case "clearForfeit":
+                $wpdb->update(
+                    'ss_matches',
+                    array(
+                        'home_forfeit' => 0,
+                        'away_forfeit' => 0
+                    ),
+                    array( 'ID' => $matchID )
+                );
+                break;
+        }
+
+        $match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
+    }
+    ?>
+
+    <strong>Home Team:</strong> <span class="homeTeamName"><?= $homeTeam->name ?></span> (Forfeit: <?=$match->home_forfeit?>)<br/>
+    <strong>Away Team:</strong> <span class="awayTeamName"><?= $awayTeam->name ?></span> (Forfeit: <?=$match->away_forfeit?>)
+    <br/>
+    <br/>
+
+    <a class="ssForfeitAction ssSetForfeitForHome thickbox button" href="" target="_blank"
+       data-matchid="<?= $matchID ?>" data-action="setForfeitForHome">Set Forfeit for Home Team</a>
+    <a class="ssForfeitAction ssSetForfeitForAway thickbox button" href="" target="_blank"
+       data-matchid="<?= $matchID ?>" data-action="setForfeitForAway">Set Forfeit for Away Team</a>
+    <a class="ssForfeitAction ssClearForfeit thickbox button" href="" target="_blank" data-matchid="<?= $matchID ?>"
+       data-action="clearForfeit">Clear Forfeit</a>
+
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery('.ssForfeitAction').on('click', function () {
+                var forfeitMatchID = jQuery(this).data('matchid');
+                var forfeitAction = jQuery(this).data('action');
+
+                jQuery.post(document.href, {
+                    "forfeitMatchID": forfeitMatchID,
+                    "forfeitAction": forfeitAction
+                }, function (data) {
+                    jQuery("#forfeitDetailsSection").html(data);
+                });
+
+                return false;
+            });
+        });
+    </script>
+
+    <?php
     die();
 }
 
@@ -179,6 +264,37 @@ function scoreSystemManager_dashboard() {
                                 }
 
                                 jQuery(this).attr('href', jQuery(this).attr('href').replace("adminerMatchID", matchID));
+                            });
+                        });
+                    </script>
+
+                    <br />
+                    <br />
+
+                    <h2>Set Team Forfeit for Match:</h2>
+
+                    Enter Match ID (from All Scores page): <input type="text" id="forfeitMatchID" />
+                    <a class="ssForfeitLoadMatch thickbox button" href="" target="_blank">Load Match</a>
+
+                    <div id="forfeitDetailsSection"></div>
+
+                    <script type="text/javascript">
+                        jQuery(function(){
+                            jQuery('.ssForfeitLoadMatch').on('click', function() {
+                                var forfeitMatchID = jQuery('#forfeitMatchID').val();
+
+                                if(!jQuery.trim(forfeitMatchID))
+                                {
+                                    alert("Please enter a match ID");
+                                    return false;
+                                }
+
+                                jQuery.post(document.href, {"forfeitMatchID": forfeitMatchID}, function (data) {
+                                    jQuery("#forfeitDetailsSection").html(data);
+                                    jQuery('.ssClearForfeit')[0].scrollIntoView();
+                                });
+
+                                return false;
                             });
                         });
                     </script>
