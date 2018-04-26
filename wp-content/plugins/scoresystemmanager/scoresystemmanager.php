@@ -20,7 +20,7 @@ if (isset($_GET['debugtables'])) {
 if( isset( $_POST['weekNumber'] ) )
 {
     echo $wpdb->replace(
-        'ss_keyvalue',
+        "{$tablePrefix}keyvalue",
         array(
             'key' => 'weekNumber',
             'value' => $_POST['weekNumber']
@@ -46,7 +46,7 @@ if(isset($_POST['forfeitMatchID'])) {
         switch ($_POST['forfeitAction']) {
             case "setForfeitForHome":
                 $wpdb->update(
-                    'ss_matches',
+                    "{$tablePrefix}matches",
                     array(
                         'home_forfeit' => 1
                     ),
@@ -56,7 +56,7 @@ if(isset($_POST['forfeitMatchID'])) {
                 break;
             case "setForfeitForAway":
                 $wpdb->update(
-                    'ss_matches',
+                    "{$tablePrefix}matches",
                     array(
                         'away_forfeit' => 1
                     ),
@@ -65,7 +65,7 @@ if(isset($_POST['forfeitMatchID'])) {
                 break;
             case "clearForfeit":
                 $wpdb->update(
-                    'ss_matches',
+                    "{$tablePrefix}matches",
                     array(
                         'home_forfeit' => 0,
                         'away_forfeit' => 0
@@ -102,6 +102,170 @@ if(isset($_POST['forfeitMatchID'])) {
                     "forfeitAction": forfeitAction
                 }, function (data) {
                     jQuery("#forfeitDetailsSection").html(data);
+                });
+
+                return false;
+            });
+        });
+    </script>
+
+    <?php
+    die();
+}
+
+function printMatchDetailsHTMLTables($matchID) {
+    global $wpdb, $tablePrefix;
+    $match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
+
+    $homeTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->home_team_id}'");
+    $awayTeam = $wpdb->get_row("SELECT * FROM {$tablePrefix}teams WHERE id = '{$match->away_team_id}'");
+
+    $teamNames = array($homeTeam->id => $homeTeam->name, $awayTeam->id => $awayTeam->name);
+
+    $matchScores = $wpdb->get_results(
+        "SELECT * FROM {$tablePrefix}scores WHERE match_id = '$matchID' ORDER BY id ASC"
+    );
+
+    $venuesResults = $wpdb->get_results(
+        "SELECT * FROM {$tablePrefix}venues ORDER BY id ASC",
+        ARRAY_A
+    );
+
+    $playerNamesResults = $wpdb->get_results(
+        "SELECT * FROM {$tablePrefix}players WHERE team_id IN ({$match->home_team_id}, {$match->away_team_id}) ORDER BY id ASC",
+        ARRAY_A
+    );
+
+    $venueNames = array_column($venuesResults, "name", "id");
+    $playerNames = array_column($playerNamesResults, "name", "id");
+    $playerTeams = array_column($playerNamesResults, "team_id", "id");
+
+    $userData = WP_User::get_data_by('id', $match->user_id);
+
+    $homePointsAfterForfeits = $match->home_team_points;
+    $awayPointsAfterForfeits = $match->away_team_points;
+
+    $homePointsString = $match->home_team_points;
+    $awayPointsString = $match->away_team_points;
+
+    if($match->home_forfeit) {
+        $homePointsAfterForfeits = 0;
+        $awayPointsAfterForfeits = 6;
+    }
+    if($match->away_forfeit) {
+        $homePointsAfterForfeits = 6;
+        $awayPointsAfterForfeits = 0;
+    }
+    if($match->home_forfeit && $match->away_forfeit) {
+        $homePointsAfterForfeits = 0;
+        $awayPointsAfterForfeits = 0;
+    }
+
+    if($match->home_forfeit || $match->away_forfeit) {
+        $homePointsString = "<del>{$match->home_team_points}</del> -> <strong>$homePointsAfterForfeits</strong>";
+        $awayPointsString = "<del>{$match->away_team_points}</del> -> <strong>$awayPointsAfterForfeits</strong>";
+    }
+
+    ?>
+
+    <table class='widefat'>
+        <thead>
+        <tr>
+            <th>Submitted By User</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Venue</th>
+            <th>Date</th>
+            <th>Week Number</th>
+            <th>Import Message</th>
+            <th>Archived</th>
+            <th>Home Points</th>
+            <th>Away Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><?=$userData->user_nicename?></td>
+            <td><?=$teamNames[$match->home_team_id]?></td>
+            <td><?=$teamNames[$match->away_team_id]?></td>
+            <td><?=$venueNames[$match->venue_id]?></td>
+            <td><?=DateTime::createFromFormat(DATE_ISO8601, $match->date)->format("d/m/Y")?></td>
+            <td><?=$match->week_number?></td>
+            <td><?=$match->import_message?></td>
+            <td><?=$match->archived ? "<strong>Yes</strong>" : "No"?></td>
+            <td><?=$homePointsString?></td>
+            <td><?=$awayPointsString?></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br />
+
+    <table class='widefat'>
+        <thead>
+        <tr><th>Team</th><th>Player Name</th><th>Leg 1</th><th>Leg 2</th><th>Leg 3</th></tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach($matchScores as $matchScore) {
+            echo "<tr><td>{$teamNames[$playerTeams[$matchScore->player_id]]}</td><td>{$playerNames[$matchScore->player_id]}</td><td>{$matchScore->leg1_score}</td><td>{$matchScore->leg2_score}</td><td>{$matchScore->leg3_score}</td></tr>";
+        }
+        ?>
+        </tbody>
+    </table>
+
+    <?php
+}
+
+
+if(isset($_POST['showScoreCardMatchID'])) {
+    $matchID = esc_sql($_POST['showScoreCardMatchID']);
+    printMatchDetailsHTMLTables($matchID);
+    die();
+}
+
+if(isset($_POST['toggleArchiveMatchID'])) {
+    $matchID = esc_sql($_POST['toggleArchiveMatchID']);
+    $match = $wpdb->get_row("SELECT * FROM {$tablePrefix}matches WHERE id = '$matchID'");
+
+    $wpdb->update(
+        "{$tablePrefix}matches",
+        array(
+            'archived' => ((int) ! $match->archived)
+        ),
+        array( 'ID' => $matchID )
+    );
+
+    die();
+}
+
+if(isset($_POST['showAllScoreCardsTeamID']) && isset($_POST['showAllScoreCardsWeekNumber'])) {
+    $teamID = esc_sql($_POST['showAllScoreCardsTeamID']);
+    $weekNumber = esc_sql(trim($_POST['showAllScoreCardsWeekNumber']));
+
+    $allMatches = $wpdb->get_results("SELECT * FROM {$tablePrefix}matches WHERE (home_team_id = '$teamID' OR away_team_id = '$teamID') AND week_number = '$weekNumber' ORDER BY id DESC");
+
+    foreach($allMatches as $match) {
+        echo "<strong>Match ID: {$match->id}</strong><br /><br />";
+        printMatchDetailsHTMLTables($match->id);
+        ?>
+        <br />
+        <a class="ssToggleArchiveMatch thickbox button" href="" target="_blank" data-matchid="<?=$match->id?>">Toggle Archived for this Match</a>
+
+        <?php
+        echo "<br /><hr /><br />";
+    }
+    ?>
+
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery('.ssToggleArchiveMatch').on('click', function () {
+                var toggleArchiveMatchID = jQuery(this).data('matchid');
+
+                jQuery.post(document.href, {
+                    "toggleArchiveMatchID": toggleArchiveMatchID
+                }, function (data) {
+                    jQuery('#showAllScoreCardsLoad').click();
                 });
 
                 return false;
@@ -271,7 +435,7 @@ function scoreSystemManager_dashboard() {
                     <br />
                     <br />
 
-                    <h2>Set Team Forfeit for Match:</h2>
+                    <h2>Edit Forfeits for Match:</h2>
 
                     Enter Match ID (from All Scores page): <input type="text" id="forfeitMatchID" />
                     <a class="ssForfeitLoadMatch thickbox button" href="" target="_blank">Load Match</a>
@@ -298,6 +462,92 @@ function scoreSystemManager_dashboard() {
                             });
                         });
                     </script>
+
+                    <br />
+
+                    <h2>Show Individual Match (Scorecard) Detail by ID:</h2>
+
+                    Enter Match ID (from All Scores page): <input type="text" id="showScoreCardMatchID" />
+                    <a class="ssShowScoreCardLoadMatch thickbox button" href="" target="_blank">Load Match</a><br />
+                    <br />
+
+                    <div id="showScoreCardDetailsSection"></div>
+
+                    <script type="text/javascript">
+                        jQuery(function(){
+                            jQuery('.ssShowScoreCardLoadMatch').on('click', function() {
+                                var matchID = jQuery('#showScoreCardMatchID').val();
+
+                                if(!jQuery.trim(matchID))
+                                {
+                                    alert("Please enter a match ID");
+                                    return false;
+                                }
+
+                                jQuery.post(document.href, {"showScoreCardMatchID": matchID}, function (data) {
+                                    jQuery("#showScoreCardDetailsSection").html(data);
+                                });
+
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <br />
+
+                    <h2>Show All Match (Scorecard) Details by Team and Week:</h2>
+
+                    Team: <select id="showAllScoreCardsTeam" name="showAllScoreCardsTeam">
+                        <?
+                        $sections = $wpdb->get_results("SELECT * FROM ss_sections ORDER BY `year` DESC, `season` DESC");
+
+                        foreach ($sections as $section)
+                        { ?>
+                            <optgroup label="<?= stripslashes($section->season) ?> <?= stripslashes($section->year) ?> - <?= stripslashes($section->name) ?> Section">
+                                <? $teams = $wpdb->get_results("SELECT * FROM ss_teams WHERE `section_id` = {$section->id} ORDER BY `name` ASC");
+                                foreach ($teams as $team)
+                                { ?>
+                                    <option value="<?= $team->id ?>"><?= stripslashes($team->name) ?></option>
+                                <? } ?>
+                            </optgroup>
+                        <? } ?>
+                    </select>
+                    Week Number: <input type="text" id="showAllScoreCardsWeek" />
+
+                    <a id="showAllScoreCardsLoad" class="thickbox button" href="" target="_blank">Load Matches</a><br />
+                    <br />
+
+                    <div id="showAllScoreCardsSection"></div>
+
+                    <script type="text/javascript">
+                        jQuery(function(){
+                            jQuery('#showAllScoreCardsLoad').on('click', function() {
+                                var teamID = jQuery('#showAllScoreCardsTeam').val();
+                                var weekNumber = jQuery('#showAllScoreCardsWeek').val();
+
+                                if(!jQuery.trim(teamID))
+                                {
+                                    alert("Please select a team");
+                                    return false;
+                                }
+
+                                if(!jQuery.trim(weekNumber))
+                                {
+                                    alert("Please enter a week number");
+                                    return false;
+                                }
+
+                                jQuery.post(document.href, {"showAllScoreCardsTeamID": teamID, "showAllScoreCardsWeekNumber": weekNumber}, function (data) {
+                                    jQuery("#showAllScoreCardsSection").html(data);
+                                });
+
+                                return false;
+                            });
+                        });
+                    </script>
+
+                    <br />
+                    <br />
 
                     <? } ?>
 				
