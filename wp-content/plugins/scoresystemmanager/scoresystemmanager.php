@@ -172,10 +172,10 @@ function printMatchDetailsHTMLTables($matchID) {
         <thead>
         <tr>
             <th>Submitted By User</th>
+            <th>Submission Date</th>
             <th>Home Team</th>
             <th>Away Team</th>
             <th>Venue</th>
-            <th>Date</th>
             <th>Week Number</th>
             <th>Import Message</th>
             <th>Archived</th>
@@ -185,11 +185,11 @@ function printMatchDetailsHTMLTables($matchID) {
         </thead>
         <tbody>
         <tr>
-            <td><?=$userData->user_nicename?></td>
+            <td><?=$userData->display_name?> (<?=$userData->user_nicename?>)</td>
+            <td><?=DateTime::createFromFormat(DATE_ISO8601, $match->date)->format("d/m/Y H:i")?></td>
             <td><?=$teamNames[$match->home_team_id]?></td>
             <td><?=$teamNames[$match->away_team_id]?></td>
             <td><?=$venueNames[$match->venue_id]?></td>
-            <td><?=DateTime::createFromFormat(DATE_ISO8601, $match->date)->format("d/m/Y")?></td>
             <td><?=$match->week_number?></td>
             <td><?=$match->import_message?></td>
             <td><?=$match->archived ? "<strong>Yes</strong>" : "No"?></td>
