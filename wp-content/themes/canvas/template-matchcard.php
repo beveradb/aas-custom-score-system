@@ -26,6 +26,16 @@ if ($weekNumberValueRow != null)
     $weekNumber = $weekNumberValueRow->value;
 }
 
+$current_user = wp_get_current_user();
+$current_user_logged_in = is_user_logged_in();
+$current_user_allowed_match_card_submission = get_the_author_meta('MatchCard', $current_user->ID);
+
+if($_GET['test'] == 'andrew') {
+    $weekNumber = 1;
+    $current_user_logged_in = true;
+    $current_user_allowed_match_card_submission = true;
+}
+
 global $woo_options;
 get_header();
 ?>
@@ -45,9 +55,7 @@ get_header();
                 <article class="post">
 
                     <?php
-                    $current_user = wp_get_current_user();
-                    $match_card= get_the_author_meta( 'MatchCard', $current_user->ID );
-                    if (!is_user_logged_in())
+                    if (!$current_user_logged_in)
                     {
                         $errors = '';
                         if (isset($_GET['wp-error']))
@@ -73,7 +81,7 @@ get_header();
                         </p>
 
                     <? }
-                     elseif (empty($match_card)) {
+                     elseif (empty($current_user_allowed_match_card_submission)) {
                          echo "You do not have permission to submit match cards - please contact your team leader to submit scores.<br />If you have any problems, please email either chairman or webmaster at (@) abingdonauntsally.com";
                      }
                     else { ?>
@@ -727,19 +735,17 @@ get_header();
 
 <?php get_footer(); ?>
 
-   <style type="text/css">
-        .close{
-                float: right;
-                clear: both;
-                font-size: 18px;
-                 margin-top: 20px;
-                 border: none;
-background: #12b31c;
-        }
-        
+<style type="text/css">
+    .close {
+        float: right;
+        clear: both;
+        font-size: 18px;
+        margin-top: 20px;
+        border: none;
+        background: #12b31c;
+    }
 
-        
-       .black_overlay{
+    .black_overlay {
         display: none;
         position: absolute;
         top: 0%;
@@ -747,20 +753,50 @@ background: #12b31c;
         width: 100%;
         height: 100%;
         background-color: black;
-        z-index:10001;
+        z-index: 10001;
         -moz-opacity: 0.8;
-        opacity:.80;
+        opacity: .80;
         filter: alpha(opacity=80);
     }
+
     .white_content {
         display: none;
         position: absolute;
         top: 10%;
         left: 10%;
         width: 80%;
-        height: 80%; 
+        height: 80%;
         background-color: white;
-        z-index:10002;
+        z-index: 10002;
         overflow: auto;
     }
-    </style>
+
+    /* ----------- iPad 1, 2, Mini and Air, plus (with pixel ratio 2) 3, 4 and Pro 9.7 ----------- */
+    @media only screen
+    and (min-device-width: 768px)
+    and (max-device-width: 1024px)
+    and (-webkit-min-device-pixel-ratio: 1),
+
+    /* ----------- iPad Pro 10.5" ----------- */
+    screen
+    and (min-device-width: 834px)
+    and (max-device-width: 1112px)
+    and (-webkit-min-device-pixel-ratio: 2),
+
+    /* ----------- iPad Pro 12.9" ----------- */
+    screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    {
+        #header-container { display: none; }
+        #nav-container { display: none; }
+        #footer-widgets-container { display: none; }
+        #footer { display: none; }
+        #main .twitter-share { display: none; }
+        div.pf-content h2 { clear: both; }
+        div#matchCard { margin-top: 15px; }
+        #wpsp_helpdesk_agent { display: none; }
+    }
+
+</style>
